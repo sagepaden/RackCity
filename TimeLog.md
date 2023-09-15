@@ -7,3 +7,5 @@
 1pm - 150pm: After setting up OpenLayers test application I beleive this will work for my use. Still need to look a bit more into it though.
 
 150pm - 328pm: Got stuck going down a rabbit hole of OpenLayer projects and tutorials. Ging to take a break for a little bit.
+
+345pm - 430pm: Starting back on Python research
