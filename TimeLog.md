@@ -9,3 +9,7 @@
 150pm - 328pm: Got stuck going down a rabbit hole of OpenLayer projects and tutorials. Ging to take a break for a little bit.
 
 345pm - 430pm: Starting back on Python research
+
+Week 2:
+
+1pm - : Starting a bit more research on react 
