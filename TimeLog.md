@@ -12,4 +12,6 @@
 
 Week 2:
 
-1pm - : Starting a bit more research on react 
+1pm - 330pm: Starting a bit more research on react 
+
+330pm - : following along tutorials for poython as a backend
