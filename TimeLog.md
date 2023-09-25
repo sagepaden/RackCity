@@ -14,4 +14,4 @@ Week 2:
 
 1pm - 330pm: Starting a bit more research on react 
 
-330pm - : following along tutorials for poython as a backend
+330pm - 830pm: following along tutorials for python as a backend
