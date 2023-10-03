@@ -23,11 +23,13 @@ class User(_UserBase):
 
 
 class _PoolTableBase(_pydantic.BaseModel):
-    first_name: str
-    last_name: str
-    email: str
-    company: str
-    note: str
+    location_name: str
+    number_of_tables: int
+    location_gps: str
+    num_of_pool_tables: str
+    discounted_days: str
+    hours: str
+    rating: int
 
 
 class PoolTableCreate(_PoolTableBase):
