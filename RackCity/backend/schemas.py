@@ -38,7 +38,6 @@ class PoolTableCreate(_PoolTableBase):
 
 class PoolTable(_PoolTableBase):
     id: int
-    owner_id: int
     date_created: _dt.datetime
     date_last_updated: _dt.datetime
 

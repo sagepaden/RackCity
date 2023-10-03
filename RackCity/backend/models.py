@@ -20,7 +20,6 @@ class User(_database.Base):
 class PoolTable(_database.Base):
     __tablename__ = "pool_tables"
     id = _sql.Column(_sql.Integer, primary_key=True, index=True)
-    owner_id = _sql.Column(_sql.ForeignKey("users.id"))
     location_name = _sql.Column(_sql.String, index=True)
     location_gps = _sql.Column(_sql.String, index=True)
     hours = _sql.Column(_sql.String, index=True, default="")
