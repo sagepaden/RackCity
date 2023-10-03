@@ -24,13 +24,13 @@ def get_db():
         db.close()
 
 
-async def get_user_by_email(email: str, db: _orm.Session):
-    return db.query(_models.User).filter(_models.User.email == email).first()
+async def get_user_by_location_gps(location_gps: str, db: _orm.Session):
+    return db.query(_models.User).filter(_models.User.location_gps == location_gps).first()
 
 
 async def create_user(user: _schemas.UserCreate, db: _orm.Session):
     user_obj = _models.User(
-        email=user.email, hashed_password=_hash.bcrypt.hash(user.hashed_password)
+        location_gps=user.location_gps, hashed_password=_hash.bcrypt.hash(user.hashed_password)
     )
     db.add(user_obj)
     db.commit()
@@ -38,8 +38,8 @@ async def create_user(user: _schemas.UserCreate, db: _orm.Session):
     return user_obj
 
 
-async def authenticate_user(email: str, password: str, db: _orm.Session):
-    user = await get_user_by_email(db=db, email=email)
+async def authenticate_user(location_gps: str, password: str, db: _orm.Session):
+    user = await get_user_by_location_gps(db=db, location_gps=location_gps)
 
     if not user:
         return False
@@ -67,7 +67,7 @@ async def get_current_user(
         user = db.query(_models.User).get(payload["id"])
     except:
         raise _fastapi.HTTPException(
-            status_code=401, detail="Invalid Email or Password"
+            status_code=401, detail="Invalid location_gps or Password"
         )
 
     return _schemas.User.from_orm(user)
@@ -107,7 +107,7 @@ async def get_pool_table(pool_table_id: _schemas.PoolTable, db: _orm.Session):
     return _schemas.PoolTable.from_orm(poolTable)
 
 
-async def delete_lead(pool_table_id: _schemas.PoolTable, db: _orm.Session):
+async def delete_pool_table(pool_table_id: _schemas.PoolTable, db: _orm.Session):
     poolTable = await _pool_table_selector(pool_table_id=pool_table_id, db=db)
 
     db.delete(poolTable)
@@ -116,11 +116,13 @@ async def delete_lead(pool_table_id: _schemas.PoolTable, db: _orm.Session):
 async def update_pool_table(pool_table_id: _schemas.PoolTable, pool_table: _schemas.PoolTableCreate, db: _orm.Session):
     pool_table_db = await _pool_table_selector(pool_table_id, db)
 
-    pool_table_db.first_name = pool_table.first_name
-    pool_table_db.last_name = pool_table.last_name
-    pool_table_db.email = pool_table.email
-    pool_table_db.company = pool_table.company
-    pool_table_db.note = pool_table.note
+    pool_table_db.location_name = pool_table.location_name
+    pool_table_db.number_of_tables = pool_table.number_of_tables
+    pool_table_db.location_gps = pool_table.location_gps
+    pool_table_db.discounted_days = pool_table.discounted_days
+    pool_table_db.hours = pool_table.hours
+    pool_table_db.rating = pool_table.rating
+
     pool_table_db.date_last_updated = _dt.datetime.utcnow()
 
     db.commit()
@@ -128,3 +130,9 @@ async def update_pool_table(pool_table_id: _schemas.PoolTable, pool_table: _sche
 
     return _schemas.PoolTable.from_orm(pool_table_db)
 
+    location_name: str
+    num_of_pool_tables: int
+    location_gps: str
+    discounted_days: str
+    hours: str
+    rating: int

@@ -5,13 +5,16 @@ import fastapi.security as _security
 
 import sqlalchemy.orm as _orm
 
-import services as _services, schemas as _schemas
+import services as _services
+import schemas as _schemas
 
 app = _fastapi.FastAPI()
+
 
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
+
 
 @app.post("/api/users")
 async def create_user(
@@ -19,7 +22,8 @@ async def create_user(
 ):
     db_user = await _services.get_user_by_email(user.email, db)
     if db_user:
-        raise _fastapi.HTTPException(status_code=400, detail="Email already in use")
+        raise _fastapi.HTTPException(
+            status_code=400, detail="Email already in use")
 
     user = await _services.create_user(user, db)
 
@@ -34,7 +38,8 @@ async def generate_token(
     user = await _services.authenticate_user(form_data.username, form_data.password, db)
 
     if not user:
-        raise _fastapi.HTTPException(status_code=401, detail="Invalid Credentials")
+        raise _fastapi.HTTPException(
+            status_code=401, detail="Invalid Credentials")
 
     return await _services.create_token(user)
 
@@ -44,53 +49,44 @@ async def get_user(user: _schemas.User = _fastapi.Depends(_services.get_current_
     return user
 
 
-@app.post("/api/leads", response_model=_schemas.Lead)
-async def create_lead(
-    lead: _schemas.LeadCreate,
-    user: _schemas.User = _fastapi.Depends(_services.get_current_user),
+@app.post("/api/pooltables", response_model=_schemas.PoolTable)
+async def create_pool_table(
+    poolTable: _schemas.PoolTableCreate,
     db: _orm.Session = _fastapi.Depends(_services.get_db),
 ):
-    return await _services.create_lead(user=user, db=db, lead=lead)
+    return await _services.create_pool_table(db=db, poolTable=poolTable)
 
 
-@app.get("/api/leads", response_model=List[_schemas.Lead])
-async def get_leads(
-    user: _schemas.User = _fastapi.Depends(_services.get_current_user),
+# @app.get("/api/pooltables/{pool_table_id}", status_code=200)
+# async def get_pool_tables(
+#     pool_table_id: _schemas.PoolTable = _fastapi.Depends(_services.get_current_user),
+#     db: _orm.Session = _fastapi.Depends(_services.get_db),
+# ):
+#     return await _services.get_pool_tables(pool_table_id, db)
+
+
+@app.delete("/api/pooltables/{pool_table_id}", status_code=204)
+async def delete_pool_table(
+    pool_table: _schemas.User = _fastapi.Depends(
+        _services._pool_table_selector),
     db: _orm.Session = _fastapi.Depends(_services.get_db),
 ):
-    return await _services.get_leads(user=user, db=db)
-
-
-@app.get("/api/leads/{lead_id}", status_code=200)
-async def get_lead(
-    lead_id: int,
-    user: _schemas.User = _fastapi.Depends(_services.get_current_user),
-    db: _orm.Session = _fastapi.Depends(_services.get_db),
-):
-    return await _services.get_lead(lead_id, user, db)
-
-
-@app.delete("/api/leads/{lead_id}", status_code=204)
-async def delete_lead(
-    lead_id: int,
-    user: _schemas.User = _fastapi.Depends(_services.get_current_user),
-    db: _orm.Session = _fastapi.Depends(_services.get_db),
-):
-    await _services.delete_lead(lead_id, user, db)
+    await _services.delete_pool_table(pool_table, db)
     return {"message", "Successfully Deleted"}
 
 
-@app.put("/api/leads/{lead_id}", status_code=200)
-async def update_lead(
-    lead_id: int,
-    lead: _schemas.LeadCreate,
-    user: _schemas.User = _fastapi.Depends(_services.get_current_user),
-    db: _orm.Session = _fastapi.Depends(_services.get_db),
-):
-    await _services.update_lead(lead_id, lead, user, db)
+@app.put("/api/pooltables/{pool_table_id}", status_code=200)
+async def update_pool_table(
+    pool_table_id: _schemas.PoolTable, 
+    pool_table: _schemas.PoolTableCreate, 
+    db: _orm.Session):
+
+    await _services.update_pool_table(pool_table_id, pool_table, db)
     return {"message", "Successfully Updated"}
 
 
 @app.get("/api")
 async def root():
-    return {"message": "Awesome Leads Manager"}
+    return {"message": "Awesome Pool Tables"}
+
+
