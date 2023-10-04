@@ -11,15 +11,14 @@ class UserCreate(_UserBase):
     hashed_password: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True  
 
 
 class User(_UserBase):
     id: int
 
     class Config:
-        orm_mode = True
-        from_attributes = True
+        from_attributes = True  
 
 
 class _PoolTableBase(_pydantic.BaseModel):
@@ -41,5 +40,4 @@ class PoolTable(_PoolTableBase):
     date_last_updated: _dt.datetime
 
     class Config:
-        orm_mode = True
-        from_attributes = True
+        from_attributes = True  
