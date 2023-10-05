@@ -12,7 +12,7 @@ function Home() {
       <div className='hidden md:flex '>
         <SideNavList />
       </div>
-      <div className='md:col-span-3 col-span-4 px-3 p-'>
+      <div className='md:col-span-3 col-span-4 px-3 '>
         <MapComponent />
         <PopularPoolTableList />
       </div>

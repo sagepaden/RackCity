@@ -25,12 +25,12 @@ function SideNavList() {
   }, []);
 
   return (
-    <div>
+    <div className='px-5 relative'>
       {loading ? (
         <p>Loading...</p>
       ) : (
         <div className=''>
-          <h3 className='font-bold text-[30px] dark:text-white '>Genres</h3>
+          <h3 className='py-2 font-bold text-[30px] dark:text-white '>Closest Tables</h3>
           {poolTableList.map((item, index) => (
             <div
               key={index}
@@ -49,7 +49,7 @@ function SideNavList() {
                 } `}
               />
               <h3
-                className={`text-[18px] group-hover:font-bold   dark:text-white
+                className={` w-60 text-[18px] group-hover:font-bold   dark:text-white
                 transition-all duration-300 ${
                   activeIndex == index ? 'font-bold' : null
                 }`}

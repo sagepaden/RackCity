@@ -2,7 +2,7 @@ import { useJsApiLoader, GoogleMap, Marker } from '@react-google-maps/api';
 
 const libraries = ['places'];
 function MapComponent() {
-  const center = { lat: 28.7041, lng: 77.1025 };
+  const center = { lat: 45.5152, lng: -122.676483 };
 
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY,
@@ -10,7 +10,7 @@ function MapComponent() {
   });
 
   return (
-    <div className='relative '>
+    <div className='py-5 relative '>
       {!isLoaded ? (
         <div>Loading...</div>
       ) : (

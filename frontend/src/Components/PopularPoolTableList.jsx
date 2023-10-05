@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getPoolTables } from '../Services/GlobalApi';
-import pool4 from '../assets/Images/pool4.png'
+import pool4 from '../assets/Images/pool4.png';
+import './../app.css';
 
 function PopularPoolTableList() {
   const [poolTableList, setPoolTableList] = useState([]);
@@ -24,7 +25,7 @@ function PopularPoolTableList() {
   }, []);
 
   return (
-    <div className='mt-5'>
+    <div className='mx-5'>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -32,25 +33,30 @@ function PopularPoolTableList() {
           <h2 className='font-bold text-[30px] dark:text-white'>
             Popular Tables
           </h2>
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-7'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-7 opactiy-80'>
             {poolTableList.map((item) => (
               <div
-                className='pb-14 bg-slate-300 dark:bg-gray-700 p-4 rounded-lg h-full 
-                                hover:scale-110 transition-all duration-300 cursor-pointer'
+                className='pb-14 bg-teal-100 dark:bg-teal-90 p-4 rounded-lg h-full 
+                                hover:scale-110 transition-all duration-300 cursor-pointer '
                 key={item.id}
-                >
-                     <img src={pool4} width={1080} 
-                    className='w-full h-[80%] rounded-xl object-cover'/>
+              >
+                <div className='relative opactiy-80 '></div>
+                <img
+                  src={pool4}
+                  width={1080}
+                  className='w-full h-[80%] rounded-xl object-cover '
+                />
                 <div>
                   <h2 className='text-[20px] dark:text-white font-bold'>
                     {item.location_name}
-                    <span className='p-1 rounded-sm ml-2 text-[10px] bg-green-100 text-green-700 font-medium'>
+                    <span className='p-1 rounded-sm ml-2 text-[10px] bg-white text-green-700 font-medium'>
                       {item.discounted_days}
                     </span>
                   </h2>
                   <h2 className='text-gray-500 '>
                     ⭐{item.rating} 💬{item.discounted_days} 🔥
                     {item.num_of_pool_tables}
+                    <div className='z-10 p-16'></div>
                   </h2>
                 </div>
               </div>

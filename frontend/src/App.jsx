@@ -5,12 +5,14 @@ import { ThemeProvider } from './Context/ThemeProvider';
 
 function App() {
   return (
-    <ThemeProvider>
-      <div>
-        <Header />
-        <Home />
-      </div>
-    </ThemeProvider>
+    <div>
+      <ThemeProvider>
+        <div>
+          <Header />
+          <Home />
+        </div>
+      </ThemeProvider>
+    </div>
   );
 }
 
