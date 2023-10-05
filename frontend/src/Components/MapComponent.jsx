@@ -58,7 +58,8 @@ function MapComponent() {
 
 
   return (
-        <div style={{ width: "50vw", height: '100vh' }}>
+    <div className='relative '>
+    <div className=' h-[170px] md:h-[320px] w-full object-cover rounded-xl'>
           <GoogleMap
             center={center}
             zoom={15}
@@ -74,7 +75,8 @@ function MapComponent() {
             <Marker position={center} />
             {directionsResponse && <DirectionsRenderer directions={directionsResponse} />}
           </GoogleMap>
-        </div>
+      </div>
+      </div>
 
   )
 
