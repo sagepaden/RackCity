@@ -9,13 +9,17 @@ import database as _database
 import models as _models
 import schemas as _schemas
 
+
+
 oauth2schema = _security.OAuth2PasswordBearer(tokenUrl="/api/token")
 
 JWT_SECRET = "myjwtsecret"
 
 
+
 def create_database():
     return _database.Base.metadata.create_all(bind=_database.engine)
+
 
 
 def get_db():
@@ -24,6 +28,7 @@ def get_db():
         yield db
     finally:
         db.close()
+
 
 
 async def get_user_by_email(email: str, db: _orm.Session):
@@ -53,12 +58,14 @@ async def authenticate_user(email: str, password: str, db: _orm.Session):
     return user
 
 
+
 async def create_token(user: _models.User):
     user_obj = _schemas.User.from_orm(user)
 
     token = _jwt.encode(user_obj.dict(), JWT_SECRET)
 
     return dict(access_token=token, token_type="bearer")
+
 
 
 async def get_current_user(
@@ -76,6 +83,7 @@ async def get_current_user(
     return _schemas.User.from_orm(user)
 
 
+
 async def create_pool_table(new_pool_table: _schemas.PoolTableCreate, db: _orm.Session):
     new_pool_table_model = _models.PoolTable(**new_pool_table.dict())
     db.add(new_pool_table_model)
@@ -85,10 +93,11 @@ async def create_pool_table(new_pool_table: _schemas.PoolTableCreate, db: _orm.S
 
 
 
-async def get_pool_tables(pool_table: _schemas.PoolTable, db: _orm.Session):
-    pool_tables = db.query(_models.PoolTable).filter_by(pool_table_id=pool_table.id)
+async def get_all_pool_tables(db: _orm.Session):
+    all_pool_tables = db.query(_models.PoolTable).all()  # Query all pool tables from the database
 
-    return list(map(_schemas.PoolTable.from_orm, pool_tables))
+    return [_schemas.PoolTable.from_orm(pool_table) for pool_table in all_pool_tables]
+
 
 
 async def _pool_table_selector(pool_table_id: int, db: _orm.Session):
@@ -106,6 +115,7 @@ async def get_pool_table(pool_table_id: int, pool_table: _schemas.PoolTable, db:
     pool_table = await _pool_table_selector(pool_table_id=pool_table_id, pool_table=pool_table, db=db)
 
     return _schemas.PoolTable.from_orm(pool_table)
+
 
 
 async def delete_pool_table(pool_table_id: int, db: _orm.Session):

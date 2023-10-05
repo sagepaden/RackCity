@@ -6,8 +6,22 @@ import sqlalchemy.orm as _orm
 
 import services as _services
 import schemas as _schemas
+from fastapi.middleware.cors import CORSMiddleware
 
 app = _fastapi.FastAPI()
+
+# CORS configuration
+origins = [
+    "http://localhost:5173",  # Replace with the actual URL of your React app
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.post("/api/users")
@@ -49,6 +63,14 @@ async def create_pool_table(
     db: _orm.Session = _fastapi.Depends(_services.get_db),
 ):
     return await _services.create_pool_table(db=db, new_pool_table=new_pool_table)
+
+@app.get("/api/pooltables/", response_model=list[_schemas.PoolTable])
+async def get_all_pool_tables(
+    db: _orm.Session = _fastapi.Depends(_services.get_db)
+):
+    all_pool_tables = await _services.get_all_pool_tables(db)
+    return all_pool_tables
+
 
 
 @app.get("/api/pooltables/{pool_table_id}", response_model=_schemas.PoolTable)

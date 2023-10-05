@@ -8,13 +8,17 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+__init__.py
 dist
 dist-ssr
 *.local
 
+
 # Editor directories and files
-.vscode/*
+database.db
+.vscode/
 !.vscode/extensions.json
+backend/venv/
 .idea
 .DS_Store
 *.suo
