@@ -15,3 +15,11 @@ Week 2:
 1pm - 330pm: Starting a bit more research on react 
 
 330pm - 830pm: following along tutorials for python as a backend
+
+
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div className={`${theme} ${theme == 'dark' ? 'bg-[#121212]' : null}`}>
+        <Header />
+        <Home />
+      </div>
+    </ThemeContext.Provider>

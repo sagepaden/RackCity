@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { ThemeContext } from '../Context/ThemeProvider';
 import logo from './../assets/Images/logo.png';
 import logo1 from './../assets/Images/logo1.png';
 
@@ -10,12 +11,10 @@ import {
   HiOutlineXMark,
   HiSun,
 } from 'react-icons/hi2';
-import { ThemeContext } from '../Context/ThemeContext';
 
 function Header() {
   const [toggle, setToggle] = useState(false);
   const { theme, setTheme } = useContext(ThemeContext);
-  // const {toggleColorMode, colorMode} = useColorMode();
 
   useEffect(() => {
     console.log('THEME--', theme);
