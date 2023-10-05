@@ -3,6 +3,7 @@ import axios from 'axios';
 import PoolTableList from './Components/PoolTableList';
 import { ThemeContext } from './Context/ThemeContext';
 import Header from './Components/Header';
+import MapComponent from './Components/MapComponent';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -16,6 +17,8 @@ function App() {
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <div className={`${theme} ${theme == 'dark' ? 'bg-[#121212]' : null}`}>
         <Header />
+        <MapComponent />
+
         <PoolTableList />
       </div>
     </ThemeContext.Provider>

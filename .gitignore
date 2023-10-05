@@ -15,12 +15,15 @@ dist-ssr
 
 
 # Editor directories and files
+admin
 __pycache__
 package-lock.json
 venv
 database.db
 .vscode
 !.vscode/extensions.json
+.env.sample
+.env.local
 .idea
 .DS_Store
 *.suo
