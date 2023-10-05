@@ -7,14 +7,14 @@ function AllPoolTableList() {
 
   const getPoolTablesData = async () => {
     try {
-      setLoading(true); // Set loading to true while fetching data
-      const response = await getPoolTables(); // Use the Axios API function from GlobalApi
+      setLoading(true);
+      const response = await getPoolTables();
       const poolTableData = response.data;
       setPoolTables(poolTableData);
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(false); // Set loading back to false after fetching data
+      setLoading(false);
     }
   };
 
@@ -30,7 +30,6 @@ function AllPoolTableList() {
               <p>Location Name: {poolTable.location_name}</p>
               <p>Number of Pool Tables: {poolTable.num_of_pool_tables}</p>
               <p>Location GPS: {poolTable.location_gps}</p>
-              {/* Add more properties as needed */}
             </div>
           ))}
         </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getPoolTables } from '../Services/GlobalApi';
+import pool1 from './../assets/Images/pool1.png' 
 
 function SideNavList() {
   const [poolTableList, setPoolTableList] = useState([]);
@@ -8,19 +9,19 @@ function SideNavList() {
 
   const getPoolTablesData = async () => {
     try {
-      setLoading(true); // Set loading to true while fetching data
-      const response = await getPoolTables(); // Use the Axios API function from GlobalApi
+      setLoading(true);
+      const response = await getPoolTables(); 
       const poolTableData = response.data;
-      setPoolTableList(poolTableData); // Update the state with fetched data
+      setPoolTableList(poolTableData);
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(false); // Set loading back to false after fetching data
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    getPoolTablesData(); // Fetch data when the component mounts
+    getPoolTablesData();
   }, []);
 
   return (
@@ -33,15 +34,14 @@ function SideNavList() {
           {poolTableList.map((item, index) => (
             <div
               key={index}
-              className={`flex gap-2 items-center cursor-pointer 
-          group  transition-all duration-300 rounded-lg p-3 
+              className={`flex gap-2 items-center cursor-pointer group  transition-all duration-300 rounded-lg p-3 
           ${activeIndex == index ? 'bg-slate-300 dark:bg-gray-700 ' : null}`}
               onClick={() => {
-                setActiveIndex(index), selectedGenreId(item.id);
+                setActiveIndex(index), selectedPoolTableId(item.id);
               }}
             >
               <img
-                src={item.image_background}
+                src={pool1}
                 className={`w-[40px] h-[40px] 
                 object-cover rounded-lg group-hover:scale-110  
                 transition-all duration-300 ${

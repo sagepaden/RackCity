@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { ThemeContext } from '../Context/ThemeProvider';
 import logo from './../assets/Images/logo.png';
 import logo1 from './../assets/Images/logo1.png';
 
-// import SideNavGenreList from './SideNavGenreList';
+import SideNavList from './SideNavList';
 import {
   HiMoon,
   HiOutlineBars3CenterLeft,
@@ -11,9 +10,10 @@ import {
   HiOutlineXMark,
   HiSun,
 } from 'react-icons/hi2';
+import { ThemeContext } from '../Context/ThemeProvider';
 
 function Header() {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
   const { theme, setTheme } = useContext(ThemeContext);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ function Header() {
         )}
         {toggle ? (
           <div className='absolute z-10 bg-white  mt-3 dark:bg-[#121212]'>
-            <SideNavGenreList />
+            <SideNavList />
           </div>
         ) : null}
       </div>
@@ -45,7 +45,7 @@ function Header() {
         <HiOutlineMagnifyingGlass />
         <input
           type='text'
-          placeholder='Search Pool Tables'
+          placeholder='Search Games'
           className='bg-transparent w-full outline-none pl-2 items-center rounded-full'
         />
       </div>
