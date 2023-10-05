@@ -14,7 +14,7 @@ export const ThemeProvider = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-    <div className={`${theme} ${theme == 'dark' ? 'bg-[#68A796]' : null}`}>
+    <div className={`${theme} ${theme == 'dark' ? 'bg-[#494C4F]' : null}`}>
         {children}
         </div>
     </ThemeContext.Provider>

@@ -8,15 +8,18 @@
 
   color-scheme: light dark;
   color: #242424;
-  background-color: #FBBED1;
-  
+  background-color: #fbbed1;
+  left: 0;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  
 }
 
 a {
@@ -30,6 +33,11 @@ a:hover {
 
 body {
   min-height: 100vh;
+  left: 0;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
 }
 
 h1 {
@@ -60,6 +68,11 @@ button:focus-visible {
   :root {
     color: #213547;
     background-color: #ffffff;
+    left: 0;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
   }
   a:hover {
     color: #747bff;

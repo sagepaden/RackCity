@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getPoolTables } from '../Services/GlobalApi';
-import pool4 from '../assets/Images/poologo.png';
+import pool4 from '../assets/Images/poolcharacter.png';
 import './../app.css';
 
 function PopularPoolTableList() {
@@ -38,29 +38,38 @@ function PopularPoolTableList() {
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-7 opactiy-80'>
             {poolTableList.map((item) => (
               <div
-                className='pb-14 bg-#FD95A7 dark:bg-teal-90 p-4 rounded-lg h-full 
-                                hover:scale-110 transition-all duration-300 cursor-pointer '
+                className='pb-14 bg-green-100 dark:bg-black p-4 rounded-lg h-full 
+                                hover:scale-110 transition-all duration-300 cursor-pointer opacity-60 hover:opacity-80'
                 key={item.id}
               >
-                <div className='relative opactiy-80 '></div>
                 <img
                   src={pool4}
-                  width={1080}
-                  className='w-full h-[80%] rounded-xl object-cover '
+                  width={240}
+                  height={60}
+                  className='hidden md:block dark:invert '
                 />
                 <div>
-                  <h2 className='text-[20px] dark:text-white font-bold'>
+                  <h2 className='text-center text-[20px] dark:text-white font-bold'>
                     {item.location_name}
+                    <div>
+                      <span className='text-center p-1 rounded-sm ml-2 text-[10px] bg-white text-green-700 font-medium'>
+                        {item.discounted_days}
+                      </span>
+                    </div>
+                  </h2>
+                  <div className='text-center'>
                     <span className='p-1 rounded-sm ml-2 text-[10px] bg-white text-green-700 font-medium'>
-                      {item.discounted_days}
+                      Number Of Tables:
+                      {item.num_of_pool_tables}
                     </span>
-                  </h2>
-                  <h2 className='text-gray-500 '>
-                    Rating: {item.rating} Discounted Days:{' '}
-                    {item.discounted_days} Number Of Pool Tables:
-                    {item.num_of_pool_tables}
-                    <div className='z-10 p-16'></div>
-                  </h2>
+                  </div>
+                  <div className='text-center'>
+                    <span className='text-center p-1 rounded-sm ml-2 text-[10px] bg-white text-green-700 font-medium'>
+                      Rating:
+                      {item.rating}
+                    </span>
+                  </div>
+                  {/* <div className='z-10 p-16 bg-teal'></div> */}
                 </div>
               </div>
             ))}

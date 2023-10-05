@@ -44,7 +44,7 @@ function SideNavList() {
             >
               <img
                 src={pool1}
-                className={`w-[40px] h-[40px] 
+                className={`dark:invert w-[40px] h-[40px] 
                 object-cover rounded-lg group-hover:scale-110  
                 transition-all duration-300 ${
                   activeIndex == index ? 'scale-110' : null

@@ -22,7 +22,7 @@ function Header() {
 
   return (
     <div className='flex items-center p-4'>
-      <img src={poollogo} width={60} height={60} className='hidden md:block' />
+      <img src={poollogo} width={60} height={60} className='hidden md:block dark:invert' />
       <div className='md:hidden'>
         {!toggle ? (
           <HiOutlineBars3CenterLeft
@@ -41,7 +41,7 @@ function Header() {
           </div>
         ) : null}
       </div>
-      <div className='flex bg-slate-200 mx-5 w-full p-2 rounded-full items-center px-2'>
+      <div className='flex bg-slate-200 mx-5 w-full p-2 rounded-full items-center px-2 opacity-60'>
         <HiOutlineMagnifyingGlass />
         <input
           type='text'
@@ -52,13 +52,13 @@ function Header() {
       <div>
         {theme == 'dark' ? (
           <HiSun
-            className='text-[35px] cursor-pointer
-       bg-gray-200 text-black p-1 rounded-full '
+            className='text-[40px] cursor-pointer
+       bg-gray-200 text-black p-1 rounded-full opacity-60'
             onClick={() => setTheme('light')}
           />
         ) : (
           <HiMoon
-            className='text-[35px] cursor-pointer bg-gray-200 text-black p-1 rounded-full'
+            className='text-[40px] cursor-pointer bg-gray-200 text-black p-1 rounded-full opacity-60'
             onClick={() => setTheme('dark')}
           />
         )}
