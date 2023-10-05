@@ -14,13 +14,13 @@ function MapComponent() {
       {!isLoaded ? (
         <div>Loading...</div>
       ) : (
-        <div className=' h-[170px] md:h-[320px] w-full object-cover rounded-xl'>
+        <div className='flex  h-[170px] md:h-[320px] w-full object-cover rounded-xl'>
           <GoogleMap
             center={center}
             zoom={15}
             mapContainerStyle={{
-              width: '100%',
-              height: '100%',
+              width: '95%',
+              height: '185%',
               borderRadius: '2rem',
             }}
             options={{

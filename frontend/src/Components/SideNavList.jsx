@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getPoolTables } from '../Services/GlobalApi';
-import pool1 from './../assets/Images/pool1.png' 
+import pool1 from './../assets/Images/poologo.png' 
 
 function SideNavList() {
   const [poolTableList, setPoolTableList] = useState([]);
@@ -25,12 +25,14 @@ function SideNavList() {
   }, []);
 
   return (
-    <div className='px-5 relative'>
+    <div className='px-1 pt-5 relative'>
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className=''>
-          <h3 className='py-2 font-bold text-[30px] dark:text-white '>Closest Tables</h3>
+          <div className=''>
+            <div className='flex rounded-xl '>
+              <h3 className='text-center p-4 py-0.5 font-bold text-[30px] dark:bg-900'>Tables Near You</h3>
+              </div>
           {poolTableList.map((item, index) => (
             <div
               key={index}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getPoolTables } from '../Services/GlobalApi';
-import pool4 from '../assets/Images/pool4.png';
+import pool4 from '../assets/Images/poologo.png';
 import './../app.css';
 
 function PopularPoolTableList() {
@@ -9,19 +9,19 @@ function PopularPoolTableList() {
 
   const getPoolTablesData = async () => {
     try {
-      setLoading(true); // Set loading to true while fetching data
-      const response = await getPoolTables(); // Use the Axios API function from GlobalApi
+      setLoading(true);
+      const response = await getPoolTables();
       const poolTableData = response.data;
-      setPoolTableList(poolTableData); // Update the state with fetched data
+      setPoolTableList(poolTableData);
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(false); // Set loading back to false after fetching data
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    getPoolTablesData(); // Fetch data when the component mounts
+    getPoolTablesData();
   }, []);
 
   return (
@@ -29,14 +29,16 @@ function PopularPoolTableList() {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div>
-          <h2 className='font-bold text-[30px] dark:text-white'>
-            Popular Tables
-          </h2>
+        <div className='pt-60'>
+          {/* <div className='flex bg-red-300 rounded-xl '>
+            <h2 className='max-w-30 text-center font-bold text-[30px] dark:text-white'>
+              Popular Tables
+            </h2>
+          </div> */}
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-7 opactiy-80'>
             {poolTableList.map((item) => (
               <div
-                className='pb-14 bg-teal-100 dark:bg-teal-90 p-4 rounded-lg h-full 
+                className='pb-14 bg-#FD95A7 dark:bg-teal-90 p-4 rounded-lg h-full 
                                 hover:scale-110 transition-all duration-300 cursor-pointer '
                 key={item.id}
               >
@@ -54,7 +56,8 @@ function PopularPoolTableList() {
                     </span>
                   </h2>
                   <h2 className='text-gray-500 '>
-                    ⭐{item.rating} 💬{item.discounted_days} 🔥
+                    Rating: {item.rating} Discounted Days:{' '}
+                    {item.discounted_days} Number Of Pool Tables:
                     {item.num_of_pool_tables}
                     <div className='z-10 p-16'></div>
                   </h2>

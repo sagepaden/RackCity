@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import logo from './../assets/Images/logo.png';
+import poollogo from './../assets/Images/poologo.png';
 import logo1 from './../assets/Images/logo1.png';
 
 import SideNavList from './SideNavList';
@@ -22,7 +22,7 @@ function Header() {
 
   return (
     <div className='flex items-center p-4'>
-      <img src={logo} width={60} height={60} className='hidden md:block' />
+      <img src={poollogo} width={60} height={60} className='hidden md:block' />
       <div className='md:hidden'>
         {!toggle ? (
           <HiOutlineBars3CenterLeft
@@ -45,7 +45,7 @@ function Header() {
         <HiOutlineMagnifyingGlass />
         <input
           type='text'
-          placeholder='Search Games'
+          placeholder='Search Pool Tables'
           className='bg-transparent w-full outline-none pl-2 items-center rounded-full'
         />
       </div>

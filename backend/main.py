@@ -12,7 +12,9 @@ app = _fastapi.FastAPI()
 
 # CORS configuration
 origins = [
-    "http://localhost:5173",  # Replace with the actual URL of your React app
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "http://localhost:8000",  # Replace with the actual URL of your React app
 ]
 
 app.add_middleware(
@@ -24,7 +26,7 @@ app.add_middleware(
 )
 
 
-@app.post("/api/admin/users")
+@app.post("/api/users")
 async def create_user(
     user: _schemas.UserCreate, db: _orm.Session = _fastapi.Depends(_services.get_db)
 ):
@@ -38,7 +40,7 @@ async def create_user(
     return await _services.create_token(user)
 
 
-@app.post("/api/admin/token")
+@app.post("/api/token")
 async def generate_token(
     form_data: _security.OAuth2PasswordRequestForm = _fastapi.Depends(),
     db: _orm.Session = _fastapi.Depends(_services.get_db),
@@ -52,12 +54,12 @@ async def generate_token(
     return await _services.create_token(user)
 
 
-@app.get("/api/admin/users/me", response_model=_schemas.User)
+@app.get("/api/users/me", response_model=_schemas.User)
 async def get_user(user: _schemas.User = _fastapi.Depends(_services.get_current_user)):
     return user
 
 
-@app.post("/api/admin/pooltables", response_model=_schemas.PoolTable)
+@app.post("/api/pooltables", response_model=_schemas.PoolTable)
 async def create_pool_table(
     new_pool_table: _schemas.PoolTableCreate,
     db: _orm.Session = _fastapi.Depends(_services.get_db),
@@ -84,7 +86,7 @@ async def get_pool_table(
     return _schemas.PoolTable.from_orm(pool_table)
 
 
-@app.delete("/api/admin/pooltables/{pool_table_id}", status_code=204)
+@app.delete("/api/pooltables/{pool_table_id}", status_code=204)
 async def delete_pool_table(
     pool_table_id: int,
     db: _orm.Session = _fastapi.Depends(_services.get_db),
@@ -94,7 +96,7 @@ async def delete_pool_table(
 
 
 
-@app.put("/api/admin/pooltables/{pool_table_id}", status_code=200)
+@app.put("/api/pooltables/{pool_table_id}", status_code=200)
 async def update_pool_table(
     pool_table_id: int,
     updated_pool_table: _schemas.PoolTableCreate,
@@ -105,7 +107,7 @@ async def update_pool_table(
     return {"message": "Successfully Updated"}
 
 
-@app.get("/api/admin")
+@app.get("/api")
 async def root():
     return {"message": "Awesome Pool Tables"}
 
