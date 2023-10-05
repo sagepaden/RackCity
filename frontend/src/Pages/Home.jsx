@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import MapComponent from '../Components/MapComponent';
-import PoolTableList from '../Components/PoolTableList';
+import AllPoolTableList from '../Components/AllPoolTableList';
+import PopularPoolTableList from '../Components/PopularPoolTableList';
 // import SideNavGenreList from '../Componets/SideNavPoolList';
 // import GlobalApi from '../Services.js/GlobalApi';
-// import PopularPoolTableList from '../Componets/PopularPoolTableList';
+
 
 function Home() {
   return (
     <div>
       <MapComponent />
 
-      <PoolTableList />
+   <PopularPoolTableList />
     </div>
   );
 }
 
-export default Home
+export default Home;

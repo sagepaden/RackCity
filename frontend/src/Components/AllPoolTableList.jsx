@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { getPoolTables } from './../Services/GlobalApi'; // Import the Axios API functions
+import { getPoolTables } from '../Services/GlobalApi';
 
-function PoolTableList() {
+function AllPoolTableList() {
   const [poolTables, setPoolTables] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -39,4 +39,4 @@ function PoolTableList() {
   );
 }
 
-export default PoolTableList;
+export default AllPoolTableList;
