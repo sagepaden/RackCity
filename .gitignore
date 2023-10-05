@@ -8,17 +8,19 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-__init__.py
+__init__
 dist
 dist-ssr
 *.local
 
 
 # Editor directories and files
+__pycache__
+package-lock.json
+venv
 database.db
-.vscode/
+.vscode
 !.vscode/extensions.json
-backend/venv/
 .idea
 .DS_Store
 *.suo
