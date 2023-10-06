@@ -30,11 +30,6 @@ function PopularPoolTableList() {
         <p>Loading...</p>
       ) : (
         <div className='pt-60'>
-          {/* <div className='flex bg-red-300 rounded-xl '>
-            <h2 className='max-w-30 text-center font-bold text-[30px] dark:text-white'>
-              Popular Tables
-            </h2>
-          </div> */}
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-7 opactiy-80'>
             {poolTableList.map((item) => (
               <div

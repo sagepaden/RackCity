@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import poollogo from './../assets/Images/poologo.png';
-import logo1 from './../assets/Images/logo1.png';
 
+import poollogo from './../assets/Images/poologo.png';
 import SideNavList from './SideNavList';
 import {
   HiMoon,
@@ -11,6 +10,7 @@ import {
   HiSun,
 } from 'react-icons/hi2';
 import { ThemeContext } from '../Context/ThemeProvider';
+
 
 function Header() {
   const [toggle, setToggle] = useState(true);

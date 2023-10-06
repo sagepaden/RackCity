@@ -19,7 +19,6 @@ class User(_database.Base):
         return False
 
 
-    # You may also want to add a method for hashing and updating the password
     def hash_password(self, password: str):
         self.hashed_password = password_context.hash(password)
 

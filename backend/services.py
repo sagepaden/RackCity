@@ -94,7 +94,7 @@ async def create_pool_table(new_pool_table: _schemas.PoolTableCreate, db: _orm.S
 
 
 async def get_all_pool_tables(db: _orm.Session):
-    all_pool_tables = db.query(_models.PoolTable).all()  # Query all pool tables from the database
+    all_pool_tables = db.query(_models.PoolTable).all()
 
     return [_schemas.PoolTable.from_orm(pool_table) for pool_table in all_pool_tables]
 

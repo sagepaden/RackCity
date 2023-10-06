@@ -14,7 +14,7 @@ app = _fastapi.FastAPI()
 origins = [
     "http://localhost:5173",
     "http://localhost:3000",
-    "http://localhost:8000",  # Replace with the actual URL of your React app
+    "http://localhost:8000",
 ]
 
 app.add_middleware(

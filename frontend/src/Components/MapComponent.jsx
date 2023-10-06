@@ -1,5 +1,6 @@
 import { useJsApiLoader, GoogleMap, Marker } from '@react-google-maps/api';
 
+
 const libraries = ['places'];
 function MapComponent() {
   const center = { lat: 45.5152, lng: -122.676483 };
