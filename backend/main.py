@@ -1,19 +1,23 @@
 from typing import List
 import fastapi as _fastapi
 import fastapi.security as _security
-
 import sqlalchemy.orm as _orm
+from fastapi.middleware.cors import CORSMiddleware
 
 import services as _services
 import schemas as _schemas
-from fastapi.middleware.cors import CORSMiddleware
+
+
+
 
 app = _fastapi.FastAPI()
 
 # CORS configuration
-origins = [
-    "http://localhost:5173",
-]
+# origins = [
+#     "http://localhost:5173",
+# ]
+
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -23,6 +27,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+# User
 
 @app.post("/api/users")
 async def create_user(
@@ -36,6 +42,16 @@ async def create_user(
     user = await _services.create_user(user, db)
 
     return await _services.create_token(user)
+
+
+
+@app.get("/api/users/", response_model=list[_schemas.User])
+async def get_all_users(
+    db: _orm.Session = _fastapi.Depends(_services.get_db)
+):
+    all_users = await _services.get_all_users(db)
+    return all_users
+
 
 
 @app.post("/api/token")
@@ -57,12 +73,17 @@ async def get_user(user: _schemas.User = _fastapi.Depends(_services.get_current_
     return user
 
 
+
+# Pool Tables
+
 @app.post("/api/pooltables", response_model=_schemas.PoolTable)
 async def create_pool_table(
     new_pool_table: _schemas.PoolTableCreate,
     db: _orm.Session = _fastapi.Depends(_services.get_db),
 ):
     return await _services.create_pool_table(db=db, new_pool_table=new_pool_table)
+
+
 
 @app.get("/api/pooltables/", response_model=list[_schemas.PoolTable])
 async def get_all_pool_tables(
@@ -82,6 +103,7 @@ async def get_pool_table(
     if pool_table is None:
         raise _fastapi.HTTPException(status_code=404, detail="Pool table not found")
     return _schemas.PoolTable.from_orm(pool_table)
+
 
 
 @app.delete("/api/pooltables/{pool_table_id}", status_code=204)
@@ -105,8 +127,7 @@ async def update_pool_table(
     return {"message": "Successfully Updated"}
 
 
+
 @app.get("/api")
 async def root():
     return {"message": "Awesome Pool Tables"}
-
-
