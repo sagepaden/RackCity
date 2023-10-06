@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { getPoolTables } from '../Services/GlobalApi';
 import pool1 from './../assets/Images/poologo.png' 
 
 function SideNavList() {

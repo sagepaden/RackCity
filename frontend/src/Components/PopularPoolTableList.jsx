@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { getPoolTables } from '../Services/GlobalApi';
 import pool4 from '../assets/Images/poolcharacter.png';
 import './../app.css';
 
@@ -64,7 +63,6 @@ function PopularPoolTableList() {
                       {item.rating}
                     </span>
                   </div>
-                  {/* <div className='z-10 p-16 bg-teal'></div> */}
                 </div>
               </div>
             ))}

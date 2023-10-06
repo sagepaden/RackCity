@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { getPoolTables } from '../Services/GlobalApi';
 
 function AllPoolTableList() {
   const [poolTables, setPoolTables] = useState([]);
