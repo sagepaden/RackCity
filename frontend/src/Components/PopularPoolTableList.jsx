@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+
+import { getPoolTables } from '../Services/globalAPI';
 import pool4 from '../assets/Images/poolcharacter.png';
 import './../app.css';
 
