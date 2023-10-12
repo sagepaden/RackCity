@@ -1,10 +1,13 @@
 import React from 'react';
+import { Provider } from 'react-redux'
+import store from './Store'
 import Header from './Components/Header';
 import Home from '../../frontend/src/Pages/Home';
 import { ThemeProvider } from './Context/ThemeProvider';
 
 function App() {
   return (
+    <Provider store={store}>
     <div>
       <ThemeProvider>
         <div>
@@ -12,7 +15,8 @@ function App() {
           <Home />
         </div>
       </ThemeProvider>
-    </div>
+      </div>
+      </Provider>
   );
 }
 
