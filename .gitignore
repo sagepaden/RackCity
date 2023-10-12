@@ -15,10 +15,11 @@ dist-ssr
 
 
 # Editor directories and files
-TestAdmin
-zoldTestAdmin
-testbackend
-newadmin
+alembic.ini
+poetry.lock
+.flake8
+alembic
+AllOldVersions
 __pycache__
 package-lock.json
 venv
