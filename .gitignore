@@ -15,12 +15,15 @@ dist-ssr
 
 
 # Editor directories and files
+prestart.sh
+clients
+zoldtestadmin
+tests
 alembic.ini
 poetry.lock
 .flake8
 alembic
 AllOldVersions
-__pycache__
 package-lock.json
 venv
 database.db
