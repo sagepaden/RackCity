@@ -110,7 +110,7 @@ async def _pool_table_selector(pool_table_id: int, db: _orm.Session):
 
 
 async def get_pool_table(pool_table_id: int, pool_table: _schemas.PoolTable, db: _orm.Session):
-    pool_table = await _pool_table_selector(pool_table_id=pool_table_id, pool_table=pool_table, db=db)
+    pool_table = await _pool_table_selector(pool_table_id=pool_table_id, db=db)
 
     return _schemas.PoolTable.from_orm(pool_table)
 
@@ -122,7 +122,8 @@ async def get_all_pool_tables(db: _orm.Session):
 
 
 async def delete_pool_table(pool_table_id: int, db: _orm.Session):
-    pool_table = await _pool_table_selector(pool_table_id, db)
+    pool_table = await _pool_table_selector(pool_table_id=pool_table_id, db=db)
+
     if pool_table is not None:
         db.delete(pool_table)
         db.commit()
