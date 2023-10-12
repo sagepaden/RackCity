@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import pool1 from './../assets/Images/poologo.png' 
+import pool1 from './../assets/Images/poologo.png';
 import { getPoolTables } from '../Services/globalAPI';
 
 function SideNavList() {
@@ -10,7 +10,7 @@ function SideNavList() {
   const getPoolTablesData = async () => {
     try {
       setLoading(true);
-      const response = await getPoolTables(); 
+      const response = await getPoolTables();
       const poolTableData = response.data;
       setPoolTableList(poolTableData);
     } catch (error) {
@@ -29,10 +29,12 @@ function SideNavList() {
       {loading ? (
         <p>Loading...</p>
       ) : (
-          <div className=''>
-            <div className='flex rounded-xl '>
-              <h3 className='text-center p-4 py-0.5 font-bold text-[30px] dark:bg-900'>Tables Near You</h3>
-              </div>
+        <div className=''>
+          <div className='flex rounded-xl '>
+            <h3 className='text-center p-4 py-0.5 font-bold text-[30px] dark:bg-900'>
+              Tables Near You
+            </h3>
+          </div>
           {poolTableList.map((item, index) => (
             <div
               key={index}

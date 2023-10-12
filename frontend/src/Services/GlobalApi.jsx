@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 const axioCreate = axios.create({
-  baseURL: 'http://localhost:8000/api',
+  baseURL: 'http://localhost:8000',
 });
 
-const getPoolTables = () => axioCreate.get('/pooltables/');
-const getPoolTableDetails = (id) => axioCreate.get(`/pooltables/${id}/`);
-const getPoolTablesByLocation = (location) =>
-  axioCreate.get(`/pooltables?location=${location}`);
+const getPoolTables = () => axioCreate.get('/pool_tables/');
+const getPoolTableDetails = (id) => axioCreate.get(`/pool_tables/${id}/`);
+// const getPoolTablesByLocation = (location) =>
+//   axioCreate.get(`/pooltables?location=${location}`);
 
-export { getPoolTables, getPoolTableDetails, getPoolTablesByLocation };
+export { getPoolTables, getPoolTableDetails };
