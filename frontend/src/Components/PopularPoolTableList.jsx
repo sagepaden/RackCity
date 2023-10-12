@@ -1,29 +1,10 @@
-import React, { useState, useEffect } from 'react';
-
-import { getPoolTables } from '../Services/globalAPI';
+import React from 'react';
+import useFetchPoolTables from '../Services/useFetchPoolTables';
 import pool4 from '../assets/Images/poolcharacter.png';
 import './../app.css';
 
 function PopularPoolTableList() {
-  const [poolTableList, setPoolTableList] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const getPoolTablesData = async () => {
-    try {
-      setLoading(true);
-      const response = await getPoolTables();
-      const poolTableData = response.data;
-      setPoolTableList(poolTableData);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getPoolTablesData();
-  }, []);
+  const { poolTableList, loading } = useFetchPoolTables();
 
   return (
     <div className='mx-5'>
