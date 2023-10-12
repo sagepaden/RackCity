@@ -15,15 +15,31 @@ dist-ssr
 
 
 # Editor directories and files
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 3ef8635 (Project imploded from something I did, luckily there is a recent back up)
 prestart.sh
 clients
 zoldtestadmin
 tests
+<<<<<<< HEAD
+=======
+>>>>>>> bc9ec7b (something happened with my backend file. All files became unuseable)
+>>>>>>> 3ef8635 (Project imploded from something I did, luckily there is a recent back up)
 alembic.ini
 poetry.lock
 .flake8
 alembic
 AllOldVersions
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+__pycache__
+=======
+>>>>>>> bc9ec7b (something happened with my backend file. All files became unuseable)
+>>>>>>> 3ef8635 (Project imploded from something I did, luckily there is a recent back up)
 package-lock.json
 venv
 database.db
