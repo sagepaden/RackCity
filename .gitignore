@@ -15,6 +15,46 @@ dist-ssr
 
 
 # Editor directories and files
+prestart.sh
+clients
+zoldtestadmin
+tests
+alembic.ini
+poetry.lock
+.flake8
+alembic
+AllOldVersions
+package-lock.json
+venv
+database.db
+.vscode
+!.vscode/extensions.json
+.env.sample
+.env.local
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+__init__
+dist
+dist-ssr
+*.local
+
+
+# Editor directories and files
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
