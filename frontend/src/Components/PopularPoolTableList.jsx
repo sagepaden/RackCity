@@ -1,17 +1,10 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchPoolTables } from '../actions/poolTableActions';
+import React from 'react';
+import useFetchPoolTables from '../Services/useFetchPoolTables';
 import pool4 from '../assets/Images/poolcharacter.png';
 import './../app.css';
 
 function PopularPoolTableList() {
-  const dispatch = useDispatch();
-  const poolTableList = useSelector((state) => state.poolTables.poolTableList);
-  const loading = useSelector((state) => state.poolTables.loading);
-
-  useEffect(() => {
-    dispatch(fetchPoolTables());
-  }, [dispatch]);
+  const { poolTableList, loading } = useFetchPoolTables();
 
   return (
     <div className='mx-5'>
