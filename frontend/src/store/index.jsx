@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from 'redux';
-import poolTableReducer from '/reducers/poolTableReducer'; 
+import poolTableReducer from '../reducers/poolTableReducer';
 
 const rootReducer = combineReducers({
-    poolTables: poolTableReducer,
+  poolTables: poolTableReducer,
 });
 
 const store = createStore(rootReducer);

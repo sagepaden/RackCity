@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import pool1 from './../assets/Images/poologo.png';
-import useFetchPoolTables from '../Services/useFetchPoolTables';
 
 function SideNavList() {
-  const { poolTableList, loading } = useFetchPoolTables();
-  const [activeIndex, setActiveIndex] = useState(null);
-  const [selectedPoolTableId, setSelectedPoolTableId] = useState(null);
+  const poolTableList = useSelector((state) => state.poolTables.poolTableList);
+  const loading = useSelector((state) => state.poolTables.loading);
 
   return (
     <div className='px-1 pt-5 relative'>

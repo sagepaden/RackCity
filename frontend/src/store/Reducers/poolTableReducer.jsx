@@ -1,11 +1,12 @@
-import { FETCH_POOL_TABLES } from "../Reducers/poolTableActions";
+import { FETCH_POOL_TABLES } from "../Actions/poolTableActions";
 
 const initialState = {
     poolTables: [],
+    loading: false,
 };
 
 const poolTableReducer = (state = initialState, action) => {
-    switch (action, type) {
+    switch (action.type) {
         case FETCH_POOL_TABLES:
             return {
                 ...state,
