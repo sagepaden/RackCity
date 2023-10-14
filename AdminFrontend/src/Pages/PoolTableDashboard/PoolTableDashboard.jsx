@@ -66,15 +66,11 @@ const PoolTableDashboard = () => {
   };
 
   const onCreatePoolTable = (e) => {
-    console.log('Sending data:', poolTableForm);
     e.preventDefault();
     setLoading(true);
     setError(false);
 
     client.createPoolTable(poolTableForm).then(() => {
-      console.log('Sending data:', poolTableForm);
-      console.debug(poolTableForm);
-      console.debug(client.createPoolTable());
       fetchAllPoolTables();
       setLoading(false);
       setShowForm(false);
