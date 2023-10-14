@@ -16,6 +16,7 @@ const PoolTable = ({ poolTable, showPoolTableInfoModal, onDelete }) => {
               <h2 className='mb-4 font-semibold tracking-widest text-white uppercase title-font'>
                 {poolTable?.location_name}
               </h2>
+              <p>Pool Table ID: {poolTable?.id}</p>
               <p>Number of Pool Tables: {poolTable?.num_of_pool_tables}</p>
               <p>Discounted Days: {poolTable?.discounted_days}</p>
               <p>Hours: {poolTable?.hours}</p>

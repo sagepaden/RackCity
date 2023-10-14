@@ -91,6 +91,12 @@ class FastAPIClient {
     return this.apiClient.post(`/pool_tables/`, { ...poolTableData });
   }
 
+  updatePoolTable(pool_tableId, poolTableData) {
+    return this.apiClient.put(`/pool_table/${pool_tableId}`, {
+      ...poolTableData,
+    });
+  }
+
   deletePoolTable(pool_tableId) {
     return this.apiClient.delete(`/pool_tables/${pool_tableId}`);
   }
