@@ -87,23 +87,8 @@ class FastAPIClient {
     });
   }
 
-  createPoolTable(
-    location_name,
-    num_of_pool_tables,
-    location_gps,
-    discounted_days,
-    hours,
-    rating
-  ) {
-    const pool_tableData = {
-      location_name,
-      num_of_pool_tables,
-      location_gps,
-      discounted_days,
-      hours,
-      rating,
-    };
-    return this.apiClient.post(`/pool_tables/`, pool_tableData);
+  createPoolTable(poolTableData) {
+    return this.apiClient.post(`/pool_tables/`, { ...poolTableData });
   }
 
   deletePoolTable(pool_tableId) {
