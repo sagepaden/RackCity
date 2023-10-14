@@ -5,6 +5,8 @@ from app import crud
 from app.api import deps
 from app.schemas.pooltable import PoolTable, PoolTableCreate
 from app.models.user import User
+import json
+
 
 router = APIRouter()
 
