@@ -1,8 +1,5 @@
-import runtimeEnv from '@mars/heroku-js-runtime-env';
-
-const env = runtimeEnv();
 const config = {
-  apiBasePath: 'http://localhost:8000',
+  apiBasePath: 'http://localhost:8001',
   reactAppMode: process.env.REACT_APP_MODE || 'dev',
 };
 
