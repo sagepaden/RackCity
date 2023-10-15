@@ -10,13 +10,18 @@ const AllPoolTables = ({
   setIsUpdate,
   setPoolTableForm,
   setShowForm,
+  isUpdate,
+  onUpdatePoolTable,
+  onCreatePoolTable,
+  poolTableForm,
+  loading,
 }) => {
   const [poolTableInfoModal, setPoolTableInfoModal] = useState(false);
-  const [error, setError] = useState({}); // Add error state if needed
+  const [error] = useState({}); // Add error state if needed
 
   return (
     <>
-      <div className='sections-list'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {poolTables.length > 0 ? (
           poolTables.map((poolTable) => (
             <IndividualPoolTable
@@ -42,11 +47,11 @@ const AllPoolTables = ({
         >
           <div className='mt-4 text-left'>
             <PoolTableForm
-              poolTableForm={poolTableInfoModal}
-              setPoolTableForm={setPoolTableInfoModal}
+              onSubmit={isUpdate ? onUpdatePoolTable : onCreatePoolTable}
+              defaultValues={poolTableForm}
+              setFormValues={setPoolTableForm}
               error={error}
-              setError={setError}
-              disabled={true}
+              loading={loading}
             />
           </div>
         </PopupModal>

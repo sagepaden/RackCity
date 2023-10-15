@@ -49,28 +49,31 @@ const PoolTableDashboard = () => {
       fetchAllPoolTables();
       setLoading(false);
       setShowForm(false);
+      setPoolTableForm({
+        location_name: '',
+        num_of_pool_tables: '',
+        location_gps: '',
+        discounted_days: '',
+        hours: '',
+        rating: '',
+      });
     });
   };
 
   const onUpdatePoolTable = (e, id = poolTableForm.id) => {
-    console.log('ID inside onUpdatePoolTable:', id); // Debug log
-    console.log('Data being sent for update:', poolTableForm); // Debug log
-
     e.preventDefault();
     setLoading(true);
     setError(false);
 
     client
       .updatePoolTable(id, poolTableForm)
-      .then((response) => {
-        console.log('Server response:', response); // Debug log
+      .then(() => {
         fetchAllPoolTables();
         setLoading(false);
         setShowForm(false);
         setIsUpdate(false);
       })
-      .catch((error) => {
-        console.log('Error updating:', error); // Debug log
+      .catch(() => {
         setLoading(false);
         setError(true);
       });
@@ -109,6 +112,15 @@ const PoolTableDashboard = () => {
             onClick={() => {
               setIsUpdate(false);
               setShowForm(!showForm);
+              // Reset the form to initial state when switching to "Create"
+              setPoolTableForm({
+                location_name: '',
+                num_of_pool_tables: '',
+                location_gps: '',
+                discounted_days: '',
+                hours: '',
+                rating: '',
+              });
             }}
           >
             Create PoolTable
@@ -144,10 +156,9 @@ const PoolTableDashboard = () => {
         >
           <PoolTableForm
             onSubmit={isUpdate ? onUpdatePoolTable : onCreatePoolTable}
-            formValues={poolTableForm}
+            defaultValues={poolTableForm}
             setFormValues={setPoolTableForm}
             error={error}
-            setError={setError}
             loading={loading}
           />
         </PopupModal>

@@ -7,17 +7,17 @@ const PoolTableForm = ({
   loading,
   error,
   defaultValues,
+  setFormValues,
   isUpdate,
 }) => {
-  const [formValues, setFormValues] = useState({});
+  const [formValues, setLocalFormValues] = useState({});
 
-  const resetForm = () => {
-    if (isUpdate) {
-      setFormValues(defaultValues);
-    } else {
-      setFormValues({});
+  // Only update local state if defaultValues change
+  useEffect(() => {
+    if (defaultValues) {
+      setLocalFormValues(defaultValues);
     }
-  };
+  }, [defaultValues]);
 
   const fields = [
     {
@@ -61,10 +61,6 @@ const PoolTableForm = ({
     });
   }
 
-  useEffect(() => {
-    resetForm();
-  }, [isUpdate, defaultValues]);
-
   return (
     <form onSubmit={onSubmit}>
       {fields.map((field) => (
@@ -74,15 +70,20 @@ const PoolTableForm = ({
           name={field.name}
           label={field.label}
           error={error[field.name]}
-          value={ '' ||
-            (defaultValues && defaultValues[field.name])
-          }
-          onChange={(e) =>
-            setFormValues({
+          value={formValues[field.name] || ''}
+          onChange={(e) => {
+            const updatedFormValues = {
               ...formValues,
               [field.name]: e.target.value,
-            })
-          }
+            };
+            setLocalFormValues(updatedFormValues);
+            // Update formValues in parent component only if they are different
+            if (
+              JSON.stringify(updatedFormValues) !== JSON.stringify(formValues)
+            ) {
+              setFormValues(updatedFormValues);
+            }
+          }}
         />
       ))}
       <Button loading={loading} error={error} title={'Submit'} />
