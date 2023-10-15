@@ -3,8 +3,6 @@ import FormInput from './FormInput';
 import Button from '../Button/Button';
 
 const PoolTableForm = ({
-  formValues,
-  setFormValues,
   onSubmit,
   loading,
   error,
@@ -76,8 +74,7 @@ const PoolTableForm = ({
           name={field.name}
           label={field.label}
           error={error[field.name]}
-          value={
-            (formValues && formValues[field.name]) ||
+          value={ '' ||
             (defaultValues && defaultValues[field.name])
           }
           onChange={(e) =>
