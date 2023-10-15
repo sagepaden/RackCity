@@ -12,11 +12,22 @@ _List the absolute minimum features the project requires to meet this purpose or
 
 _What tools, frameworks, libraries, APIs, modules and/or other resources (whatever is specific to your track, and your language) will you use to create this MVP? List them all here. Be specific_. 
 
-* HTML/CSS
+* Python
 * JavaScript/JSX
-* React - 
+* Vite/React - 
 * OpenLayers
-* Python/flask
+* FastAPI
+* axios
+* GoogleMapsAPI
+* TailwindCSS
+* PostCSS
+* Postgresql
+* SQLAlchemy
+* passlib
+* python-jose
+* alembic
+* JWT
+
 
 _If you finish developing the minimum viable product (MVP) with time to spare, what will you work on next? Describe these features here: Be specific_. 
 
