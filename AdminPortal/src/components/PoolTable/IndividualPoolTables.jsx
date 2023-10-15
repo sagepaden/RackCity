@@ -1,6 +1,11 @@
 import React from 'react';
 
-const PoolTable = ({ poolTable, showPoolTableInfoModal, onDelete }) => {
+const IndividualPoolTable = ({
+  poolTable,
+  showPoolTableInfoModal,
+  onDelete,
+  onUpdate,
+}) => {
   return (
     poolTable && (
       <>
@@ -17,6 +22,7 @@ const PoolTable = ({ poolTable, showPoolTableInfoModal, onDelete }) => {
                 {poolTable?.location_name}
               </h2>
               <p>Pool Table ID: {poolTable?.id}</p>
+              <p>Location GPS: {poolTable?.location_gps}</p>
               <p>Number of Pool Tables: {poolTable?.num_of_pool_tables}</p>
               <p>Discounted Days: {poolTable?.discounted_days}</p>
               <p>Hours: {poolTable?.hours}</p>
@@ -28,9 +34,14 @@ const PoolTable = ({ poolTable, showPoolTableInfoModal, onDelete }) => {
             style={{ zIndex: 10000 }}
           >
             <div className='relative flex flex-col h-full p-8'>
-              <h1 className='flex items-end mx-auto text-3xl font-black leading-none text-white '>
-                <span>View PoolTable </span>
-              </h1>
+              <button
+                onClick={() => {
+                  onUpdate(poolTable.id);
+                }}
+                className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  bg-red-600 cursor-pointer hover:bg-red-700 text-white font-bold px-4 py-2 mx-auto mt-3 rounded'
+              >
+                Update
+              </button>
               <div className='flex flex-col md:flex-row'>
                 <button
                   onClick={(e) => {
@@ -39,7 +50,7 @@ const PoolTable = ({ poolTable, showPoolTableInfoModal, onDelete }) => {
                   }}
                   className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  bg-red-600 cursor-pointer hover:bg-red-700 text-white font-bold px-4 py-2 mx-auto mt-3 rounded'
                 >
-                  Delete PoolTable
+                  Delete Pool Table
                 </button>
               </div>
             </div>
@@ -50,4 +61,4 @@ const PoolTable = ({ poolTable, showPoolTableInfoModal, onDelete }) => {
   );
 };
 
-export default PoolTable;
+export default IndividualPoolTable;

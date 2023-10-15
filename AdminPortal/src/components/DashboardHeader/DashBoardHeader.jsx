@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import FastAPIClient from '../../Services/FastAPIClient';
-import config from '../../config';
+import config from '../../Services/config';
 import jwtDecode from 'jwt-decode';
 import * as moment from 'moment';
 

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import DashboardHeader from '../../components/DashboardHeader/DashBoardHeader';
+import DashboardHeader from '../../Components/DashboardHeader/DashBoardHeader';
 import { Link, useNavigate } from 'react-router-dom';
 import FastAPIClient from '../../Services/FastAPIClient';
-import config from '../../config';
-import Button from '../../components/Button/Button';
-import FormInput from '../../components/FormInput/FormInput';
+import config from '../../Services/config';
+import Button from '../../Components/Button/Button';
+import FormInput from '../../Components/Forms/FormInput';
 
 const client = new FastAPIClient(config);
 

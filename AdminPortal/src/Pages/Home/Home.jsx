@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import FastAPIClient from '../../Services/FastAPIClient';
-import config from '../../config';
-import PoolTableTable from '../../components/PoolTableTable/PoolTableTable.jsx';
-import DashboardHeader from '../../components/DashboardHeader/DashBoardHeader';
-import Footer from '../../components/Footer/Footer';
-import Loader from '../../components/Loader';
+import config from '../../Services/config';
+import AllPoolTables from '../../Components/PoolTable/AllPoolTables';
+import DashboardHeader from '../../Components/DashboardHeader/DashBoardHeader';
+import Footer from '../../Components/Footer/Footer';
+import Loader from '../../Components/Loader';
 
 const client = new FastAPIClient(config);
 
@@ -49,7 +49,7 @@ const Home = () => {
               PoolTables - Better than all the REST
             </h1>
             <div className='mainViewport'>
-              <PoolTableTable poolTables={poolTables} />
+              <AllPoolTables poolTables={poolTables} />
             </div>
           </div>
         </div>
