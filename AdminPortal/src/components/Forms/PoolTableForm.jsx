@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import FormInput from './FormInput';
 import Button from '../Button/Button';
 
@@ -11,6 +11,16 @@ const PoolTableForm = ({
   defaultValues,
   isUpdate,
 }) => {
+  const [formValues, setFormValues] = useState({});
+
+  const resetForm = () => {
+    if (isUpdate) {
+      setFormValues(defaultValues);
+    } else {
+      setFormValues({});
+    }
+  };
+
   const fields = [
     {
       type: 'text',
@@ -52,6 +62,10 @@ const PoolTableForm = ({
       disabled: true,
     });
   }
+
+  useEffect(() => {
+    resetForm();
+  }, [isUpdate, defaultValues]);
 
   return (
     <form onSubmit={onSubmit}>

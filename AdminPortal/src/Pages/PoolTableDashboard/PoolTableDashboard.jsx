@@ -32,7 +32,7 @@ const PoolTableDashboard = () => {
   const [poolTables, setPoolTables] = useState([]);
   const [loading, setLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(true);
-  const [isUpdate, setIsUpdate] = useState(false); // New state variable
+  const [isUpdate, setIsUpdate] = useState(false);
 
   const fetchAllPoolTables = () => {
     client.getPoolTables().then((data) => {
@@ -52,12 +52,28 @@ const PoolTableDashboard = () => {
     });
   };
 
-  const onUpdatePoolTable = (id) => {
-    const poolTableToUpdate = poolTables.find((pt) => pt.id === id);
-    if (poolTableToUpdate) {
-      setPoolTableForm(poolTableToUpdate);
-      setShowForm(true);
-    }
+  const onUpdatePoolTable = (e, id = poolTableForm.id) => {
+    console.log('ID inside onUpdatePoolTable:', id); // Debug log
+    console.log('Data being sent for update:', poolTableForm); // Debug log
+
+    e.preventDefault();
+    setLoading(true);
+    setError(false);
+
+    client
+      .updatePoolTable(id, poolTableForm)
+      .then((response) => {
+        console.log('Server response:', response); // Debug log
+        fetchAllPoolTables();
+        setLoading(false);
+        setShowForm(false);
+        setIsUpdate(false);
+      })
+      .catch((error) => {
+        console.log('Error updating:', error); // Debug log
+        setLoading(false);
+        setError(true);
+      });
   };
 
   const onDeletePoolTable = (id) => {
@@ -105,7 +121,10 @@ const PoolTableDashboard = () => {
               <AllPoolTables
                 poolTables={poolTables}
                 onDelete={onDeletePoolTable}
-                onUpdate={onUpdatePoolTable} // Pass the new onEdit function
+                onUpdate={onUpdatePoolTable}
+                setIsUpdate={setIsUpdate}
+                setPoolTableForm={setPoolTableForm}
+                setShowForm={setShowForm}
               />
             ) : (
               <p>No poolTables found!</p>
@@ -120,13 +139,13 @@ const PoolTableDashboard = () => {
           onCloseBtnPress={() => {
             setShowForm(false);
             setError({});
-            setIsUpdate(false); // Reset isUpdate when closing the form
+            setIsUpdate(false);
           }}
         >
           <PoolTableForm
             onSubmit={isUpdate ? onUpdatePoolTable : onCreatePoolTable}
-            formValues={poolTableForm} // Changed from poolTableForm
-            setFormValues={setPoolTableForm} // Changed from setPoolTableForm
+            formValues={poolTableForm}
+            setFormValues={setPoolTableForm}
             error={error}
             setError={setError}
             loading={loading}

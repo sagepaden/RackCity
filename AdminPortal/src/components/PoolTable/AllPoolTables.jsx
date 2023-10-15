@@ -3,7 +3,14 @@ import PopupModal from '../Modal/PopupModal';
 import PoolTableForm from '../Forms/PoolTableForm'; // Import PoolTableForm
 import IndividualPoolTable from './IndividualPoolTables';
 
-const AllPoolTables = ({ poolTables, onDelete, onUpdate }) => {
+const AllPoolTables = ({
+  poolTables,
+  onDelete,
+  onUpdate,
+  setIsUpdate,
+  setPoolTableForm,
+  setShowForm,
+}) => {
   const [poolTableInfoModal, setPoolTableInfoModal] = useState(false);
   const [error, setError] = useState({}); // Add error state if needed
 
@@ -13,11 +20,13 @@ const AllPoolTables = ({ poolTables, onDelete, onUpdate }) => {
         {poolTables.length > 0 ? (
           poolTables.map((poolTable) => (
             <IndividualPoolTable
-              showPoolTableInfoModal={() => setPoolTableInfoModal(poolTable)}
               key={poolTable.id}
               poolTable={poolTable}
               onDelete={onDelete}
               onUpdate={onUpdate}
+              setIsUpdate={setIsUpdate}
+              setPoolTableForm={setPoolTableForm}
+              setShowForm={setShowForm}
             />
           ))
         ) : (

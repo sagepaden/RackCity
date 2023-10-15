@@ -4,7 +4,9 @@ const IndividualPoolTable = ({
   poolTable,
   showPoolTableInfoModal,
   onDelete,
-  onUpdate,
+  setIsUpdate,
+  setPoolTableForm,
+  setShowForm,
 }) => {
   return (
     poolTable && (
@@ -35,8 +37,13 @@ const IndividualPoolTable = ({
           >
             <div className='relative flex flex-col h-full p-8'>
               <button
-                onClick={() => {
-                  onUpdate(poolTable.id);
+                type='button'
+                onClick={(e) => {
+                  e.stopPropagation();
+                  console.log('ID inside IndividualPoolTable:', poolTable.id); // Debug log
+                  setIsUpdate(true);
+                  setPoolTableForm(poolTable);
+                  setShowForm(true);
                 }}
                 className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  bg-red-600 cursor-pointer hover:bg-red-700 text-white font-bold px-4 py-2 mx-auto mt-3 rounded'
               >

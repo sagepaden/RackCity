@@ -92,7 +92,7 @@ class FastAPIClient {
   }
 
   updatePoolTable(pool_tableId, poolTableData) {
-    return this.apiClient.put(`/pool_table/${pool_tableId}`, {
+    return this.apiClient.put(`/pool_tables/${pool_tableId}`, {
       ...poolTableData,
     });
   }
