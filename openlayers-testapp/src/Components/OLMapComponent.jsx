@@ -10,51 +10,53 @@ import Point from 'ol/geom/Point';
 import { fromLonLat } from 'ol/proj';
 
 function OLMapComponent() {
-  const [map, setMap] = useState();
-  const mapElement = useRef();
-  const mapRef = useRef();
-  mapRef.current = map;
+	const [map, setMap] = useState();
+	const mapElement = useRef();
+	const mapRef = useRef();
+	mapRef.current = map;
 
-  const osmLayer = new TileLayer({
-    preload: Infinity,
-    source: new OSM(),
-  });
+	const osmLayer = new TileLayer({
+		preload: Infinity,
+		source: new OSM(),
+	});
 
-  const iconFeature = new Feature({
-    geometry: new Point([0, 0]),
-    name: 'Null Island',
-    population: 4000,
-    rainfall: 500,
-  });
+	const iconFeature = new Feature({
+		geometry: new Point([0, 0]),
+		name: 'Null Island',
+		population: 4000,
+		rainfall: 500,
+	});
 
-  const vectorSource = new VectorSource({
-    features: [iconFeature],
-  });
+	const vectorSource = new VectorSource({
+		features: [iconFeature],
+	});
 
-  const vectorLayer = new VectorLayer({
-    source: vectorSource,
-  });
+	const vectorLayer = new VectorLayer({
+		source: vectorSource,
+	});
 
-  const initialMap = new Map({
-    target: mapElement.current,
-    layers: [osmLayer, vectorLayer],
-    view: new View({
-      center: [0, 0],
-      zoom: 0,
-    }),
-  });
+	const initialMap = new Map({
+		target: mapElement.current,
+		layers: [osmLayer, vectorLayer],
+		view: new View({
+			center: [0, 0],
+			zoom: 0,
+		}),
+	});
 
-  useEffect(() => {
-    setMap(initialMap);
-  }, []);
+	useEffect(() => {
+		setMap(initialMap);
+	}, []);
 
-  return (
-    <div
-      style={{ height: '100vh', width: '100vh' }}
-      ref={mapElement}
-      className='map-container'
-    />
-  );
+	return (
+		<div className='flex  h-[170px] md:h-[320px] object-cover rounded-xl'>
+			<div
+				className='flex  h-[170px] md:h-[320px] object-cover rounded-xl'
+				style={{ height: '100vh', width: '100vh' }}
+				ref={mapElement}
+			/>
+		</div>
+	);
 }
 
 export default OLMapComponent;

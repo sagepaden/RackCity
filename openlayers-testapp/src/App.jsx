@@ -1,12 +1,13 @@
-import './app.css';
-import OLMapComponent from './Components/OLMapComponent';
+import './App.css';
+import { ReMap } from './Map/ReMap';
+
 
 function App() {
-  return (
-    <>
-      <OLMapComponent />
-    </>
-  );
+	return (
+    <div className='App'>
+      <ReMap center={[0,0]} zoom={12} />
+		</div>
+	);
 }
 
 export default App;
