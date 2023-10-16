@@ -1,9 +1,10 @@
-import './App.css';
+import './app.css';
+import OLMapComponent from './Components/OLMapComponent';
 
 function App() {
   return (
     <>
-      <div></div>
+      <OLMapComponent />
     </>
   );
 }
