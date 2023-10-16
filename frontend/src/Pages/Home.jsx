@@ -1,6 +1,6 @@
 import React from 'react';
-import MapComponent from '../Components/MapComponent';
-import PopularPoolTableList from '../Components/PopularPoolTableList';
+import MapComponent from '../Components/Map/GoogleMapComponent';
+import PopularPoolTableList from '../Components/PoolTable/PopularPoolTableList';
 import SideNavList from '../Components/SideNavList';
 
 function Home() {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import pool1 from './../assets/Images/poologo.png';
-import useFetchPoolTables from '../Services/useFetchPoolTables';
+import useFetchPoolTables from '../Hooks/useFetchPoolTables';
 
 function SideNavList() {
   const { poolTableList, loading } = useFetchPoolTables();

@@ -1,7 +1,7 @@
 import React from 'react';
-import useFetchPoolTables from '../Services/useFetchPoolTables';
-import pool4 from '../assets/Images/poolcharacter.png';
-import './../app.css';
+import useFetchPoolTables from '../../Hooks/useFetchPoolTables';
+import pool4 from '../../assets/Images/poolcharacter.png';
+import './../../app.css';
 
 function PopularPoolTableList() {
   const { poolTableList, loading } = useFetchPoolTables();

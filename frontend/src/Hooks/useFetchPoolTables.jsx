@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getPoolTables } from './GlobalApi';
+import { getPoolTables } from '../Services/GlobalApi';
 
 const useFetchPoolTables = () => {
   const [poolTableList, setPoolTableList] = useState([]);
