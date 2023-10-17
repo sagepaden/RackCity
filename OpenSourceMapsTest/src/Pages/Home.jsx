@@ -1,5 +1,4 @@
 import React from 'react';
-import MapComponent from '../Components/Map/GoogleMapComponent';
 import PopularPoolTableList from '../Components/PoolTable/PopularPoolTableList';
 import SideNavList from '../Components/SideNavList';
 import LeafLetTest from '../Components/Map/LeafLetTest';

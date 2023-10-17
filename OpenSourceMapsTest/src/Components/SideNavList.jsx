@@ -5,15 +5,15 @@ import useFetchPoolTables from '../Hooks/useFetchPoolTables';
 function SideNavList() {
 	const { poolTableList, loading } = useFetchPoolTables();
 	const [activeIndex, setActiveIndex] = useState(null);
-	const [ selectedPoolTableId, setSelectedPoolTableId] = useState(null);
+	const [selectedPoolTableId, setSelectedPoolTableId] = useState(null);
 
 	return (
-		<div className='px-1 pt-5 relative'>
+		<div className='flex-none flex-col space-y-4 px-1 pt-5 relative'>
 			{loading ? (
 				<p>Loading...</p>
 			) : (
-				<div className=''>
-					<div className='flex rounded-xl '>
+				<div className='grow'>
+					<div className='flex rounded-xl'>
 						<h3 className='text-center p-4 py-0.5 font-bold text-[30px] dark:bg-900'>
 							Tables Near You
 						</h3>
@@ -21,7 +21,7 @@ function SideNavList() {
 					{poolTableList.map((item, index) => (
 						<div
 							key={item.id}
-							className={`flex gap-2 items-center cursor-pointer group  transition-all duration-300 rounded-lg p-3 
+							className={`flex grow gap-2 items-center cursor-pointer group  transition-all duration-300 rounded-lg p-3 
           ${activeIndex === index ? 'bg-slate-300 dark:bg-gray-700 ' : null}`}
 							onClick={() => {
 								setActiveIndex(index);
