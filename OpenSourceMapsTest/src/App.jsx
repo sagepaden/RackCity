@@ -1,10 +1,17 @@
 import './App.css';
-import LeafLetTest from './Components/LeafLetTest';
+import Header from './Components/Header';
+import { ThemeProvider } from './Context/ThemeProvider';
+import Home from './Pages/Home';
 
 function App() {
 	return (
-		<div className='App'>
-			<LeafLetTest />
+		<div>
+			<ThemeProvider>
+				<div>
+					<Header />
+					<Home />
+				</div>
+			</ThemeProvider>
 		</div>
 	);
 }
