@@ -1,8 +1,25 @@
 .App {
-  text-align: center;
+	font-family: sans-serif;
+	text-align: center;
 }
 
-.App-logo {
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+#root {
+	height: 100vh;
+}
+
+/* Sizing of map container */
+
+.leaflet-container {
+	height: 60vh;
+}
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +52,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
