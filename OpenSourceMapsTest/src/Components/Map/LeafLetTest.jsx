@@ -9,7 +9,7 @@ function LeafLetTest() {
 				<MapContainer
 					center={[48.8566, 2.3522]}
 					zoom={13}
-					className='leaflet-container'
+					className='flex  h-[170px] md:h-[320px] w-full object-cover rounded-xl'
 				>
 					<TileLayer
 						attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
