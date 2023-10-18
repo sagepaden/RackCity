@@ -1,12 +1,12 @@
 import React from 'react';
-import PopularPoolTableList from '../Components/PoolTable/PopularPoolTableList';
-import SideNavList from '../Components/SideNavList';
-import LeafLetTest from '../Components/Map/LeafLetTest';
-import Header from '../Components/Header';
+import PopularPoolTableList from '../Components/PoolTable/PoolTableList';
+import SideNavList from '../Components/Header/HeaderNav';
+import LeafLetTest from '../Components/Map/Map';
+import Header from '../Components/Header/Header';
 
 function Home() {
 	return (
-		<div className='flex flex-col p-2 items-center'>
+		<div className='flex flex-col p-5 items-center'>
 			<div className='w-full'>
 				<Header />
 			</div>
@@ -16,7 +16,7 @@ function Home() {
 			<div className='flex-grow w-full'>
 				<LeafLetTest />
 			</div>
-			<div className=''>
+			<div className='flex-grow'>
 				<PopularPoolTableList />
 			</div>
 		</div>

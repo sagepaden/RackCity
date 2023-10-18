@@ -2,7 +2,7 @@ import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './map.css';
 
-function LeafLetTest() {
+function Map() {
 	return (
 		<div className='py-5'>
 			<MapContainer
@@ -19,4 +19,4 @@ function LeafLetTest() {
 	);
 }
 
-export default LeafLetTest;
+export default Map;

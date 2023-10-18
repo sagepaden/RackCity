@@ -1,23 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { HiMoon, HiOutlineMagnifyingGlass, HiSun } from 'react-icons/hi2';
+import poollogo from './../../assets/Images/poologo.png';
 
-import poollogo from './../assets/Images/poologo.png';
-import SideNavList from './SideNavList';
-import {
-	HiMoon,
-	HiOutlineBars3CenterLeft,
-	HiOutlineMagnifyingGlass,
-	HiOutlineXMark,
-	HiSun,
-} from 'react-icons/hi2';
-import { ThemeContext } from '../Context/ThemeProvider';
+import { ThemeContext } from '../../Context/ThemeProvider';
 
 function Header() {
-	const [toggle, setToggle] = useState(true);
 	const { theme, setTheme } = useContext(ThemeContext);
 
-	useEffect(() => {
-		console.log('THEME--', theme);
-	}, []);
+	useEffect(() => {}, []);
 
 	return (
 		<div className='flex items-center p-0 flex-grow w-full'>

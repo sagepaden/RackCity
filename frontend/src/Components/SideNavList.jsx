@@ -5,7 +5,7 @@ import useFetchPoolTables from '../Hooks/useFetchPoolTables';
 function SideNavList() {
   const { poolTableList, loading } = useFetchPoolTables();
   const [activeIndex, setActiveIndex] = useState(null);
-  const [selectedPoolTableId, setSelectedPoolTableId] = useState(null);
+  const [setSelectedPoolTableId] = useState(null);
 
   return (
     <div className='px-1 pt-5 relative'>
@@ -20,7 +20,7 @@ function SideNavList() {
           </div>
           {poolTableList.map((item, index) => (
             <div
-              key={index}
+              key={item}
               className={`flex gap-2 items-center cursor-pointer group  transition-all duration-300 rounded-lg p-3 
           ${activeIndex === index ? 'bg-slate-300 dark:bg-gray-700 ' : null}`}
               onClick={() => {
