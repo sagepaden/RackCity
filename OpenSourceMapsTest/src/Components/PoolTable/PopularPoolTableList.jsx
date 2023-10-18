@@ -11,8 +11,8 @@ function PopularPoolTableList() {
 			{loading ? (
 				<p>Loading...</p>
 			) : (
-				<div className='pt-60'>
-					<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-7 opactiy-80'>
+				<div>
+					<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 opactiy-80'>
 						{poolTableList.map((item) => (
 							<div
 								className='pb-14 bg-green-100 dark:bg-black p-4 rounded-lg h-full 

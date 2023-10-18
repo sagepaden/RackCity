@@ -2,14 +2,14 @@ import React from 'react';
 import PopularPoolTableList from '../Components/PoolTable/PopularPoolTableList';
 import SideNavList from '../Components/SideNavList';
 import LeafLetTest from '../Components/Map/LeafLetTest';
+import Header from '../Components/Header';
 
 function Home() {
 	return (
-		<div className='grid grid-cols-4 p-6'>
-			<div className='hidden md:flex '>
-				<SideNavList />
-			</div>
-			<div className='md:col-span-3 col-span-4 px-3 '>
+		<div className='flex flex-col p-6 items-center'>
+			<Header />
+			<SideNavList />
+			<div className='flex-grow flex-col justify-center'>
 				<LeafLetTest />
 				<PopularPoolTableList />
 			</div>

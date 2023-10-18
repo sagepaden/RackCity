@@ -1,0 +1,15 @@
+.mycssmap {
+	display: flex !important;
+	flex-grow: 1 !important;
+	border-radius: 0.75rem !important;
+	width: 100% !important;
+	transition-property: all !important;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+	transition-duration: 300ms !important;
+}
+
+@media (min-width: 50px) {
+	.mycssmap {
+		height: 320px !important;
+	}
+}

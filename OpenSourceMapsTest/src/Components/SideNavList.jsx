@@ -3,26 +3,26 @@ import pool1 from './../assets/Images/poologo.png';
 import useFetchPoolTables from '../Hooks/useFetchPoolTables';
 
 function SideNavList() {
+	console.log('rendered');
 	const { poolTableList, loading } = useFetchPoolTables();
 	const [activeIndex, setActiveIndex] = useState(null);
 	const [selectedPoolTableId, setSelectedPoolTableId] = useState(null);
 
 	return (
-		<div className='flex-none flex-col space-y-4 px-1 pt-5 relative'>
+		<div className='flex items-center px-1 pt-5'>
 			{loading ? (
 				<p>Loading...</p>
 			) : (
-				<div className='grow'>
-					<div className='flex rounded-xl'>
-						<h3 className='text-center p-4 py-0.5 font-bold text-[30px] dark:bg-900'>
-							Tables Near You
-						</h3>
-					</div>
+				<div className='flex-grow flex flex-row space-x-4'>
 					{poolTableList.map((item, index) => (
 						<div
 							key={item.id}
-							className={`flex grow gap-2 items-center cursor-pointer group  transition-all duration-300 rounded-lg p-3 
-          ${activeIndex === index ? 'bg-slate-300 dark:bg-gray-700 ' : null}`}
+							className={`flex flex-col items-center cursor-pointer group transition-all duration-300 rounded-lg p-3 
+              ${
+					activeIndex === index
+						? 'bg-slate-300 dark:bg-gray-700'
+						: null
+				}`}
 							onClick={() => {
 								setActiveIndex(index);
 								setSelectedPoolTableId(item.id);
@@ -30,17 +30,14 @@ function SideNavList() {
 						>
 							<img
 								src={pool1}
-								className={`dark:invert w-[40px] h-[40px] 
-                object-cover rounded-lg group-hover:scale-110  
-                transition-all duration-300 ${
-					activeIndex === index ? 'scale-110' : null
-				} `}
+								className={`dark:invert w-[40px] h-[40px] object-cover rounded-lg group-hover:scale-110 transition-all duration-300 ${
+									activeIndex === index ? 'scale-110' : null
+								}`}
 							/>
 							<h3
-								className={` w-60 text-[18px] group-hover:font-bold   dark:text-white
-                transition-all duration-300 ${
-					activeIndex === index ? 'font-bold' : null
-				}`}
+								className={`text-[12px] group-hover:font-bold dark:text-white transition-all duration-300 ${
+									activeIndex === index ? 'font-bold' : null
+								}`}
 							>
 								{item.location_name}
 							</h3>
