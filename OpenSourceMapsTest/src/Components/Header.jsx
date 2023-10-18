@@ -27,24 +27,6 @@ function Header() {
 				height={60}
 				className='md:block dark:invert'
 			/>
-			{/* <div className='md:hidden'>
-				{!toggle ? (
-					<HiOutlineBars3CenterLeft
-						onClick={() => setToggle(!toggle)}
-						className='dark:text-white text-[25px] cursor-pointer'
-					/>
-				) : (
-					<HiOutlineXMark
-						onClick={() => setToggle(!toggle)}
-						className='dark:text-white text-[25px] cursor-pointer'
-					/>
-				)}
-				{toggle ? (
-					<div className='absolute z-10 bg-white  mt-3 dark:bg-[#121212]'>
-						<SideNavList />
-					</div>
-				) : null}
-			</div> */}
 			<div className='flex bg-slate-200 mx-5 w-full p-2 rounded-full items-center px-2 opacity-60'>
 				<HiOutlineMagnifyingGlass />
 				<input
