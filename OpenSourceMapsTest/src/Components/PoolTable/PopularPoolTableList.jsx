@@ -7,44 +7,49 @@ function PopularPoolTableList() {
 	const { poolTableList, loading } = useFetchPoolTables();
 
 	return (
-		<div className='mx-5'>
+		<div className='mx-3 '>
 			{loading ? (
 				<p>Loading...</p>
 			) : (
 				<div>
-					<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 opactiy-80'>
+					<div
+						className='grid grid-cols-1 gap-6 opacity-80
+							sm:grid-cols-2 
+							md:grid-cols-3
+							lg:grid-cols-4
+							xl:grid-cols-5
+							2xl:grid-cols-6'
+					>
 						{poolTableList.map((item) => (
 							<div
-								className='pb-14 bg-green-100 dark:bg-black p-4 rounded-lg h-full 
-                hover:scale-110 transition-all duration-300 cursor-pointer opacity-60 hover:opacity-80'
+								className='
+								h-[150px] w-[150px] 
+								flex flex-col 
+								items-center 
+								bg-green-100 
+								p-4 rounded-lg 
+								opacity-60
+								hover:scale-110 
+								hover:opacity-80 
+								dark:bg-black 
+								transition-all 
+								duration-300 
+								cursor-pointer'
 								key={item.id}
 							>
 								<img
 									src={pool4}
-									width={240}
-									height={60}
-									className='hidden md:block dark:invert '
+									width={140}
+									height={100}
+									className='block dark:invert'
 								/>
-								<div>
-									<h2 className='text-center text-[20px] dark:text-white font-bold'>
+								<div className='text-center'>
+									<h2 className='text-[16px] dark:text-white font-bold'>
 										{item.location_name}
-										<div>
-											<span className='text-center p-1 rounded-sm ml-2 text-[10px] bg-white text-green-700 font-medium'>
-												{item.discounted_days}
-											</span>
-										</div>
 									</h2>
-									<div className='text-center'>
-										<span className='p-1 rounded-sm ml-2 text-[10px] bg-white text-green-700 font-medium'>
-											Number Of Tables:
-											{item.num_of_pool_tables}
-										</span>
-									</div>
-									<div className='text-center'>
-										<span className='text-center p-1 rounded-sm ml-2 text-[10px] bg-white text-green-700 font-medium'>
-											Rating:
-											{item.rating}
-										</span>
+									<div className='text-center rounded-sm ml-2 text-[10px] text-black font-medium'>
+										<p>Rating:</p>
+										{item.rating}
 									</div>
 								</div>
 							</div>

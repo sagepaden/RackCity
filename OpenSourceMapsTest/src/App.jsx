@@ -1,5 +1,4 @@
-import './App.css';
-import Header from './Components/Header';
+
 import { ThemeProvider } from './Context/ThemeProvider';
 import Home from './Pages/Home';
 

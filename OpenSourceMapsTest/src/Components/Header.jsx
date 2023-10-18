@@ -25,9 +25,9 @@ function Header() {
 				src={poollogo}
 				width={60}
 				height={60}
-				className='hidden md:block dark:invert'
+				className='md:block dark:invert'
 			/>
-			<div className='md:hidden'>
+			{/* <div className='md:hidden'>
 				{!toggle ? (
 					<HiOutlineBars3CenterLeft
 						onClick={() => setToggle(!toggle)}
@@ -44,7 +44,7 @@ function Header() {
 						<SideNavList />
 					</div>
 				) : null}
-			</div>
+			</div> */}
 			<div className='flex bg-slate-200 mx-5 w-full p-2 rounded-full items-center px-2 opacity-60'>
 				<HiOutlineMagnifyingGlass />
 				<input
