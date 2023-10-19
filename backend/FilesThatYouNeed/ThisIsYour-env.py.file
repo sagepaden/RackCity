@@ -1,0 +1,70 @@
+You will find this automatically generated file in the alembic folder that was created when running the alembic init command from the README.
+
+You do not need to replace the file, just copy and paste the below into the env.py file replacing the existing code.
+
+All this code does is further protect your pathway, password, and username for your postgres database. It's not technically needed, but better safe than sorry.
+
+MAKE SURE YOU UPDATE BOTH THE env.py FILE, THE alembic.ini FILE AS WELL AS YOUR OWN .env FILE BEFORE RUNNING YOUR MIGRATIONS 
+
+
+
+from logging.config import fileConfig
+
+from sqlalchemy import engine_from_config
+from sqlalchemy import pool
+from app.db.base import Base
+
+from alembic import context
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
+# Get the URL from an environment variable
+database_url = os.environ.get("DOTENV_POSTGRES_PATH")
+print(f"Database URL: {database_url}")
+
+config = context.config
+
+fileConfig(config.config_file_name)
+
+target_metadata = Base.metadata
+
+
+def run_migrations_offline():
+    """Run migrations in 'offline' mode."""
+    # Use the environment variable for the URL
+    url = database_url
+    context.configure(
+        url=url,
+        target_metadata=target_metadata,
+        literal_binds=True,
+        dialect_opts={"paramstyle": "named"},
+    )
+
+    with context.begin_transaction():
+        context.run_migrations()
+
+
+def run_migrations_online():
+    """Run migrations in 'online' mode."""
+    # Use the environment variable for the URL
+    configuration = config.get_section(config.config_ini_section)
+    configuration["sqlalchemy.url"] = database_url
+    connectable = engine_from_config(
+        configuration,
+        prefix="sqlalchemy.",
+        poolclass=pool.NullPool,
+    )
+
+    with connectable.connect() as connection:
+        context.configure(connection=connection, target_metadata=target_metadata)
+
+        with context.begin_transaction():
+            context.run_migrations()
+
+
+if context.is_offline_mode():
+    run_migrations_offline()
+else:
+    run_migrations_online()

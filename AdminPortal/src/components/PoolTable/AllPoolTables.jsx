@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PopupModal from '../Modal/PopupModal';
-import PoolTableForm from '../Forms/PoolTableForm'; // Import PoolTableForm
+import PoolTableForm from '../Forms/PoolTableForm';
 import IndividualPoolTable from './IndividualPoolTables';
 
 const AllPoolTables = ({
@@ -17,7 +17,7 @@ const AllPoolTables = ({
   loading,
 }) => {
   const [poolTableInfoModal, setPoolTableInfoModal] = useState(false);
-  const [error] = useState({}); // Add error state if needed
+  const [error] = useState({});
 
   return (
     <>
