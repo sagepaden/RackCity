@@ -5,11 +5,12 @@ from datetime import datetime
 
 class PoolTableBase(BaseModel):
     location_name: str
-    num_of_pool_tables: str
-    location_gps: str
+    num_of_pool_tables: int
     discounted_days: str
     hours: str
-    rating: str
+    rating: float
+    lat: float
+    lng: float
 
     class Config:
         orm_mode = True
