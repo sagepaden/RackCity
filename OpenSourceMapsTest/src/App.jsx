@@ -1,4 +1,3 @@
-
 import { ThemeProvider } from './Context/ThemeProvider';
 import Home from './Pages/Home';
 
@@ -6,7 +5,7 @@ function App() {
 	return (
 		<div>
 			<ThemeProvider>
-				<div>
+				<div >
 					<Home />
 				</div>
 			</ThemeProvider>

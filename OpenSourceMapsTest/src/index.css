@@ -9,6 +9,7 @@
 	color-scheme: light dark;
 	color: #242424;
 	background-color: #fbbed1;
+	max-height: screen;
 	left: 0;
 	-webkit-transition: 0.2s;
 	-moz-transition: 0.2s;
@@ -45,7 +46,7 @@ button:focus,
 button:focus-visible {
 	outline: 4px auto -webkit-focus-ring-color;
 }
-
+*/
 @media (prefers-color-scheme: light) {
 	:root {
 		-webkit-transition: 0.2s;
@@ -53,7 +54,7 @@ button:focus-visible {
 		-o-transition: 0.2s;
 		transition: 0.2s;
 	}
-	 a:hover {
+	a:hover {
 		color: #747bff;
-	} 
-} */
+	}
+}
