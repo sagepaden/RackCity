@@ -28,11 +28,12 @@ const IndividualPoolTable = ({
               {poolTable?.location_name}
             </h2>
             <p>Pool Table ID: {poolTable?.id}</p>
-            <p>Location GPS: {poolTable?.location_gps}</p>
             <p>Number of Pool Tables: {poolTable?.num_of_pool_tables}</p>
             <p>Discounted Days: {poolTable?.discounted_days}</p>
             <p>Hours: {poolTable?.hours}</p>
             <p>Rating: {poolTable?.rating}</p>
+            <p>Latitude: {poolTable?.lat}</p>
+            <p>Longitude: {poolTable?.lng}</p>
           </div>
           <div className='flex justify-between w-full mt-4'>
             <button
