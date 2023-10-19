@@ -9,9 +9,11 @@ import os
 # Load .env file
 load_dotenv()
 
-print("Debugging DOTENV_POSTGRES_PATH:", os.environ.get("DOTENV_POSTGRES_PATH"))
-print("Debugging DOTENV_JWT_SECRET:", os.environ.get("DOTENV_JWT_SECRET"))
-print("Debugging DOTENV_ALGORITHM:", os.environ.get("DOTENV_ALGORITHM"))
+# Use the commented out print's if you're having issues with you.env file.
+
+# print("Debugging DOTENV_POSTGRES_PATH:", os.environ.get("DOTENV_POSTGRES_PATH"))
+# print("Debugging DOTENV_JWT_SECRET:", os.environ.get("DOTENV_JWT_SECRET"))
+# print("Debugging DOTENV_ALGORITHM:", os.environ.get("DOTENV_ALGORITHM"))
 
 # Project Directories
 ROOT = pathlib.Path(__file__).resolve().parent.parent

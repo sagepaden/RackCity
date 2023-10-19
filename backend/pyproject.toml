@@ -20,6 +20,7 @@ passlib = {extras = ["bcrypt"], version = "^1.7.2"}
 python-jose = {extras = ["cryptography"], version = "^3.3.0"}
 psycopg2-binary = "^2.9.3"
 gunicorn = "^20.1.0"
+python-dotenv = "^1.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
@@ -28,3 +29,4 @@ requests = "^2.26.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
