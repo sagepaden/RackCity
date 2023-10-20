@@ -28,8 +28,12 @@ function PoolTableList() {
 				  transition-all 
 				  duration-300 
 				  cursor-pointer 
-				  ${expandedCard === index ? 'h-auto max-h-[300px]' : 'h-auto max-h-[160px]'}
-				  transition-all ease-in-out duration-400`}
+				  ${
+						expandedCard === index
+							? 'h-auto max-h-[300px] transition-all ease-in-out duration-600 '
+							: 'h-auto max-h-[130px] transition-all ease-in-out duration-600'
+					}
+				  transition-all ease-in-out duration-600`}
 							key={item.id}
 							onClick={() =>
 								setExpandedCard(
@@ -37,21 +41,21 @@ function PoolTableList() {
 								)
 							}
 						>
-							<div className='text-center overflow-hidden transition-all ease-in-out duration-600 flex flex-col items-center'>
-								<h2 className='text-[14px] dark:text-white font-bold break-words'>
+							<div className='text-center flex flex-col items-center'>
+								<h2 className='-mt-3 text-[14px] dark:text-white font-bold break-words'>
 									{item.location_name}
 								</h2>
-								<div className='w-[140px] h-[100px] flex-none'>
+								<div className='w-[100px] h-[100px] flex-none'>
 									<img
 										src={pool4}
-										className='block dark:invert w-full h-full object-cover'
+										className='block dark:invert object-cover'
 									/>
 								</div>
-								<div className='-mt-4 rounded-sm text-[10px] text-black font-medium'>
+								<div className='-mt-7 text-[10px] text-black font-medium'>
 									{item.rating}
 								</div>
 								{expandedCard === index && (
-									<div className=''>
+									<div>
 										<p className='text-[10px] text-black font-medium'>
 											Discounted Days:{' '}
 										</p>
