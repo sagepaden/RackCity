@@ -4,7 +4,7 @@ import pool4 from '../../assets/Images/poolcharacter.png';
 import './../../app.css';
 
 function PoolTableList() {
-	const { poolTableList, loading } = useFetchPoolTables();
+	const { poolTables, loading } = useFetchPoolTables();
 	const [expandedCard, setExpandedCard] = useState(null);
 
 	return (
@@ -13,7 +13,7 @@ function PoolTableList() {
 				<p>Loading...</p>
 			) : (
 				<div className='flex flex-wrap justify-center'>
-					{poolTableList.map((item, index) => (
+					{poolTables.map((pT, index) => (
 						<div
 							className={`m-2
 				  h-[130px] w-[130px] 
@@ -34,7 +34,7 @@ function PoolTableList() {
 							: 'h-auto max-h-[130px] transition-all ease-in-out duration-600'
 					}
 				  transition-all ease-in-out duration-600`}
-							key={item.id}
+							key={pT.id}
 							onClick={() =>
 								setExpandedCard(
 									expandedCard === index ? null : index,
@@ -43,7 +43,7 @@ function PoolTableList() {
 						>
 							<div className='text-center flex flex-col items-center'>
 								<h2 className='-mt-3 text-[14px] dark:text-white font-bold break-words'>
-									{item.location_name}
+									{pT.location_name}
 								</h2>
 								<div className='w-[100px] h-[100px] flex-none'>
 									<img
@@ -52,7 +52,7 @@ function PoolTableList() {
 									/>
 								</div>
 								<div className='-mt-7 text-[10px] text-black font-medium'>
-									{item.rating}
+									{pT.rating}
 								</div>
 								{expandedCard === index && (
 									<div>
@@ -61,13 +61,13 @@ function PoolTableList() {
 										</p>
 										<p className='text-[10px] text-black font-medium'></p>
 										<p className='text-[10px] text-black font-medium'>
-											{item.discounted_days}
+											{pT.discounted_days}
 										</p>
 										<p className='text-[10px] text-black font-medium'>
 											Number of Tables:{' '}
 										</p>
 										<p className='text-[10px] text-black font-medium'>
-											{item.num_of_pool_tables}
+											{pT.num_of_pool_tables}
 										</p>
 									</div>
 								)}

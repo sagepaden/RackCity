@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getPoolTables } from '../Services/GlobalApi';
 
 const useFetchPoolTables = () => {
-  const [poolTableList, setPoolTableList] = useState([]);
+  const [poolTables, setPoolTables] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const fetchPoolTables = async () => {
@@ -10,7 +10,7 @@ const useFetchPoolTables = () => {
       setLoading(true);
       const response = await getPoolTables();
       const poolTableData = response.data;
-      setPoolTableList(poolTableData);
+      setPoolTables(poolTableData);
     } catch (error) {
       console.log(error);
     } finally {
@@ -22,7 +22,7 @@ const useFetchPoolTables = () => {
     fetchPoolTables();
   }, []);
 
-  return { poolTableList, loading };
+  return { poolTables, loading };
 };
 
 export default useFetchPoolTables;

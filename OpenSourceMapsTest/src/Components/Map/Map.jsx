@@ -4,25 +4,25 @@ import 'leaflet/dist/leaflet.css';
 import './map.css';
 
 function Map() {
-	const { poolTableList, loading } = useFetchPoolTables();
+	const { poolTables, loading } = useFetchPoolTables();
+
+	const mapBoxSkinKey = import.meta.env.VITE_MAPBOX_SKIN_KEY;
 
 	return (
 		<div className='py-5'>
 			<MapContainer
 				center={[45.5152, -122.6784]}
-				zoom={13}
+				zoom={14}
 				className='mycssmap'
 			>
-				{poolTableList.map((poolTable) => (
-					<Marker
-						key={poolTable.id}
-						position={[poolTable.lat, poolTable.lng]}
-					></Marker>
-				))}
 				<TileLayer
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-					url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+					url={mapBoxSkinKey}
+					// url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 				/>
+				{poolTables.map((pT) => (
+					<Marker key={pT.id} position={[pT.lat, pT.lng]}></Marker>
+				))}
 			</MapContainer>
 		</div>
 	);

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { HiMoon, HiOutlineMagnifyingGlass, HiSun } from 'react-icons/hi2';
-import poollogo from './../../assets/Images/poologo.png';
+import poollogo from './../../assets/Images/poolcharacterlogo.png';
 
 import { ThemeContext } from '../../Context/ThemeProvider';
 
@@ -13,9 +13,9 @@ function Header() {
 		<div className='flex items-center p-0 flex-grow w-full'>
 			<img
 				src={poollogo}
-				width={60}
-				height={60}
-				className='md:block dark:invert'
+				width={70}
+				height={100}
+				className='-my-2 opacity-75 md:block dark:invert'
 			/>
 			<div className='flex bg-slate-200 mx-5 w-full p-2 rounded-full items-center px-2 opacity-60'>
 				<HiOutlineMagnifyingGlass />

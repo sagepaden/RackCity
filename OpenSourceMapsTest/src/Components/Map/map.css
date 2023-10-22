@@ -3,13 +3,13 @@
 	flex-grow: 1;
 	border-radius: 0.75rem;
 	width: 100%;
-	transition-property: all;
+	/* transition-property: all;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-duration: 300ms;
+	transition-duration: 300ms; */
 }
 
 @media (min-width: 50px) {
 	.mycssmap {
-		height: 420px;
+		height: 620px;
 	}
 }
